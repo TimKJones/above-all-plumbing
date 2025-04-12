@@ -468,4 +468,133 @@ Our approach prioritizes long-term solutions that balance immediate needs with s
   }
 ];
 
+/**
+ * Validates that all services have required properties
+ * @returns {boolean} True if all services are valid
+ */
+export const validateServicesSchema = (): { valid: boolean; errors: string[] } => {
+  const errors: string[] = [];
+  const requiredFields = [
+    'id', 'title', 'slug', 'shortDescription', 'fullDescription',
+    'iconComponent', 'heroImage', 'processList', 'faqs', 
+    'relatedServices', 'seoMetadata'
+  ];
+  
+  // Check all services have required fields
+  services.forEach(service => {
+    requiredFields.forEach(field => {
+      if (!(field in service)) {
+        errors.push(`Service "${service.title}" (ID: ${service.id}) is missing required field "${field}"`);
+      }
+    });
+    
+    // Check for non-empty arrays
+    if (!Array.isArray(service.processList) || service.processList.length === 0) {
+      errors.push(`Service "${service.title}" (ID: ${service.id}) has empty processList`);
+    }
+    
+    if (!Array.isArray(service.faqs) || service.faqs.length === 0) {
+      errors.push(`Service "${service.title}" (ID: ${service.id}) has empty faqs`);
+    }
+    
+    // Check processList items
+    service.processList.forEach((item, index) => {
+      if (!item.step || !item.description) {
+        errors.push(`Service "${service.title}" (ID: ${service.id}) has invalid processList item at index ${index}`);
+      }
+    });
+    
+    // Check FAQ items
+    service.faqs.forEach((item, index) => {
+      if (!item.question || !item.answer) {
+        errors.push(`Service "${service.title}" (ID: ${service.id}) has invalid FAQ item at index ${index}`);
+      }
+    });
+    
+    // Check SEO metadata
+    const seo = service.seoMetadata;
+    if (!seo.title || !seo.description || !Array.isArray(seo.keywords) || seo.keywords.length === 0) {
+      errors.push(`Service "${service.title}" (ID: ${service.id}) has invalid SEO metadata`);
+    }
+  });
+  
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validates that all service relationships refer to valid services
+ * @returns {boolean} True if all relationships are valid
+ */
+export const validateServiceRelationships = (): { valid: boolean; errors: string[] } => {
+  const errors: string[] = [];
+  const validIds = services.map(s => s.id);
+  
+  services.forEach(service => {
+    if (Array.isArray(service.relatedServices)) {
+      service.relatedServices.forEach(relatedId => {
+        if (!validIds.includes(relatedId)) {
+          errors.push(`Service "${service.title}" (ID: ${service.id}) references non-existent service ID ${relatedId}`);
+        }
+      });
+    }
+  });
+  
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Validates that slugs are unique across all services
+ * @returns {boolean} True if all slugs are unique
+ */
+export const validateUniqueSlugs = (): { valid: boolean; errors: string[] } => {
+  const errors: string[] = [];
+  const slugs = new Map<string, number>();
+  
+  services.forEach(service => {
+    if (slugs.has(service.slug)) {
+      errors.push(`Duplicate slug "${service.slug}" found for services with IDs ${slugs.get(service.slug)} and ${service.id}`);
+    } else {
+      slugs.set(service.slug, service.id);
+    }
+  });
+  
+  return { valid: errors.length === 0, errors };
+};
+
+/**
+ * Runs all validation functions and returns comprehensive results
+ * @returns {Object} Validation results
+ */
+export const validateServices = (): { 
+  valid: boolean; 
+  schemaValid: boolean;
+  relationshipsValid: boolean;
+  slugsValid: boolean;
+  errors: string[];
+} => {
+  const schemaValidation = validateServicesSchema();
+  const relationshipValidation = validateServiceRelationships();
+  const slugValidation = validateUniqueSlugs();
+  
+  const errors = [
+    ...schemaValidation.errors,
+    ...relationshipValidation.errors,
+    ...slugValidation.errors
+  ];
+  
+  return {
+    valid: errors.length === 0,
+    schemaValid: schemaValidation.valid,
+    relationshipsValid: relationshipValidation.valid,
+    slugsValid: slugValidation.valid,
+    errors
+  };
+};
+
+// Validate services on import
+const validation = validateServices();
+if (!validation.valid) {
+  console.warn('Service data validation failed:', validation.errors);
+}
+
 export default services; 
