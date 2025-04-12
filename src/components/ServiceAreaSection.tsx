@@ -1,8 +1,21 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import GoogleMapComponent from './GoogleMap';
 
 const ServiceAreaSection = () => {
+  // Nashville center coordinates
+  const nashvilleCoordinates = {
+    lat: 36.1627,
+    lng: -86.7816
+  };
+
+  // Business location (using Nashville coordinates for now)
+  const businessLocation = {
+    lat: 36.1627,
+    lng: -86.7816
+  };
+
   return (
     <section className="py-16 bg-white" aria-labelledby="service-area-heading">
       <div className="container-custom">
@@ -34,11 +47,16 @@ const ServiceAreaSection = () => {
             </div>
           </div>
           
-          {/* Right Column - Map Placeholder & Contact Info */}
+          {/* Right Column - Map & Contact Info */}
           <div>
-            {/* Map Placeholder */}
-            <div className="bg-gray-100 rounded-lg h-[300px] flex items-center justify-center mb-6" aria-label="Map placeholder - coming soon">
-              <p className="text-gray-500">Map Coming Soon</p>
+            {/* Google Map */}
+            <div className="mb-6">
+              <GoogleMapComponent 
+                center={nashvilleCoordinates}
+                zoom={11}
+                markerPosition={businessLocation}
+                height="300px"
+              />
             </div>
             
             {/* Contact Information */}
