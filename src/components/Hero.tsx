@@ -2,15 +2,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { PhoneCall, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
 
-// Note: Place the plumber image in the public directory as "plumber-image.jpg"
-// For development, you can also use an external URL temporarily
-
 const Hero = () => {
-  // If you have the image in your public directory, use this path:
-  // const plumberImagePath = "/plumber-image.jpg";
-  // Otherwise, temporarily use an external URL (replace with your image URL):
-  const plumberImagePath = "https://source.unsplash.com/RdmLSJR-tq8/800x600"; // Fallback to a similar plumbing image
-
   return (
     <section className="pt-10 pb-16 md:pt-20 md:pb-24 relative overflow-hidden">
       {/* Background Elements */}
