@@ -1,0 +1,197 @@
+# GoogleMap Component Implementation
+
+## Component Structure
+```tsx
+// src/components/GoogleMap.tsx
+import React, { useCallback, useState } from 'react';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+
+interface GoogleMapProps {
+  center?: {
+    lat: number;
+    lng: number;
+  };
+  zoom?: number;
+  markerPosition?: {
+    lat: number;
+    lng: number;
+  };
+  height?: string;
+}
+
+// Map container styles
+const containerStyle = {
+  width: '100%',
+  height: '300px', // Default height
+  borderRadius: '0.5rem', // To match the design
+};
+
+// Nashville center coordinates
+const defaultCenter = {
+  lat: 36.1627,
+  lng: -86.7816
+};
+
+// Map options to customize the map appearance
+const defaultMapOptions = {
+  disableDefaultUI: true, // Disable all default UI
+  zoomControl: true, // But keep zoom control
+  streetViewControl: false,
+  mapTypeControl: false,
+  gestureHandling: 'cooperative', // Makes it more mobile-friendly
+  styles: [] // Will be filled with custom styles
+};
+
+export const GoogleMapComponent: React.FC<GoogleMapProps> = ({
+  center = defaultCenter,
+  zoom = 11,
+  markerPosition = defaultCenter,
+  height = '300px',
+}) => {
+  // Load the Google Maps JavaScript API
+  const { isLoaded, loadError } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '',
+  });
+
+  // State to hold the map instance
+  const [map, setMap] = useState<google.maps.Map | null>(null);
+
+  // Callback when map loads
+  const onLoad = useCallback((map: google.maps.Map) => {
+    setMap(map);
+  }, []);
+
+  // Callback when map unmounts
+  const onUnmount = useCallback(() => {
+    setMap(null);
+  }, []);
+
+  // Custom container style with dynamic height
+  const customContainerStyle = {
+    ...containerStyle,
+    height
+  };
+
+  // Handle loading state
+  if (!isLoaded) {
+    return (
+      <div 
+        style={customContainerStyle}
+        className="bg-gray-100 flex items-center justify-center"
+      >
+        <p className="text-gray-500">Loading map...</p>
+      </div>
+    );
+  }
+
+  // Handle error state
+  if (loadError) {
+    return (
+      <div 
+        style={customContainerStyle}
+        className="bg-gray-100 flex items-center justify-center"
+      >
+        <p className="text-gray-500">Error loading map</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="map-container">
+      <GoogleMap
+        mapContainerStyle={customContainerStyle}
+        center={center}
+        zoom={zoom}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+        options={defaultMapOptions}
+      >
+        {/* Marker for the business location */}
+        <Marker position={markerPosition} />
+      </GoogleMap>
+    </div>
+  );
+};
+
+export default GoogleMapComponent;
+```
+
+## Map Styling Object (To Be Created Later)
+```tsx
+// src/components/GoogleMapStyles.ts
+export const mapStyles = [
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e9e9e9"
+      },
+      {
+        "lightness": 17
+      }
+    ]
+  },
+  // More style elements will be added based on the company's color scheme
+];
+```
+
+## Integration in ServiceAreaSection
+```tsx
+// In src/components/ServiceAreaSection.tsx
+import GoogleMapComponent from './GoogleMap';
+
+// ...
+
+// Replace this:
+<div className="bg-gray-100 rounded-lg h-[300px] flex items-center justify-center mb-6" aria-label="Map placeholder - coming soon">
+  <p className="text-gray-500">Map Coming Soon</p>
+</div>
+
+// With:
+<GoogleMapComponent 
+  height="300px"
+  // Company location 
+  markerPosition={{
+    lat: 36.1627, // Replace with actual business coordinates
+    lng: -86.7816
+  }}
+/>
+```
+
+## Error Boundary
+Consider wrapping the map component in an error boundary to handle any runtime errors:
+
+```tsx
+import { ErrorBoundary } from 'react-error-boundary';
+
+// In ServiceAreaSection component
+<ErrorBoundary 
+  fallback={
+    <div className="bg-gray-100 rounded-lg h-[300px] flex items-center justify-center mb-6">
+      <p className="text-gray-500">Unable to load map</p>
+    </div>
+  }
+>
+  <GoogleMapComponent 
+    height="300px"
+    markerPosition={{ lat: 36.1627, lng: -86.7816 }}
+  />
+</ErrorBoundary>
+```
+
+## Custom Marker Icon (Optional Enhancement)
+```tsx
+// Custom icon for the marker
+const customIcon = {
+  url: '/path/to/marker-icon.svg', // Path to custom icon
+  scaledSize: new window.google.maps.Size(30, 30), // Size of the icon
+};
+
+// In GoogleMapComponent
+<Marker 
+  position={markerPosition}
+  icon={customIcon}
+/>
+``` 

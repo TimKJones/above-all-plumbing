@@ -1,0 +1,90 @@
+# Google Maps Integration Plan - Sequential Steps
+
+## 1. Research & Setup
+- [x] Research Google Maps API requirements and pricing
+  - JavaScript Maps API requires a billing account but offers $200 monthly credit (enough for most small sites)
+  - Need to enable Maps JavaScript API in Google Cloud Console
+- [x] Obtain a Google Maps API key
+  - Would be created in Google Cloud Console
+- [x] Determine the coordinates for the center of Nashville (latitude/longitude)
+  - Nashville center coordinates: 36.1627° N, 86.7816° W (36.1627, -86.7816)
+- [x] Identify which Google Maps package to use for React integration
+  - Selected @react-google-maps/api: Well-maintained, TypeScript support, good documentation
+  - Alternative options: google-map-react, react-google-maps
+
+## 2. Dependency Installation
+- [ ] Install the required Google Maps React package
+  ```
+  npm install @react-google-maps/api
+  ```
+- [ ] Add the API key to environment variables (.env file)
+  ```
+  # .env file
+  VITE_GOOGLE_MAPS_API_KEY=your_api_key_here
+  ```
+- [ ] Configure environment variables in Vite application
+  - Verify that vite.config.ts correctly exposes VITE_ prefixed environment variables
+  - Access the API key in code using `import.meta.env.VITE_GOOGLE_MAPS_API_KEY`
+
+## 3. Basic Map Integration
+- [ ] Create a new GoogleMap component in `src/components/GoogleMap.tsx`
+  - Implement the component using @react-google-maps/api
+  - Create TypeScript interfaces for component props
+  - Add loading and error states
+- [ ] Set default map options (zoom level, centering, controls)
+  - Default zoom: 11 (shows city and immediate surroundings)
+  - Default center: Nashville coordinates
+  - Disable POI (points of interest) to reduce visual clutter
+- [ ] Test rendering of the basic map with default options
+- [ ] Style the map container to match design
+
+## 4. Service Area Section Integration
+- [ ] Replace the placeholder in the ServiceAreaSection with the GoogleMap component
+- [ ] Configure map to center on Nashville coordinates
+- [ ] Set appropriate zoom level to show Nashville metropolitan area
+- [ ] Adjust dimensions and responsive behavior
+  - Ensure map height matches the design
+  - Verify proper responsiveness at all breakpoints
+
+## 5. Map Styling & Customization
+- [ ] Create custom map styles to match the site's color scheme
+  - Use Google Maps Styling Wizard to generate style JSON
+  - Create a styles object in a separate file
+- [ ] Configure Google Maps options for ui controls
+  - Enable zoom controls but position them appropriately
+  - Disable street view and satellite buttons
+- [ ] Add a marker for the company location
+  - Use the placeholders address coordinates
+- [ ] Style the marker with custom icon (optional)
+
+## 6. Performance Optimization
+- [ ] Implement lazy loading for the map
+  ```jsx
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+  })
+  ```
+- [ ] Add loading state indicator while map is initializing
+- [ ] Optimize map for mobile devices
+  - Disable certain features on mobile
+  - Consider using `gestureHandling: 'cooperative'` for better mobile UX
+
+## 7. Testing & Validation
+- [ ] Test map rendering across different browsers
+- [ ] Verify map performance on mobile devices
+- [ ] Ensure map is accessible with keyboard navigation
+- [ ] Test with API request limits in mind
+
+## 8. Security & Best Practices
+- [ ] Secure the API key with HTTP referrer restrictions
+  - Limit API key usage to your domain in Google Cloud Console
+- [ ] Implement error handling for API issues
+- [ ] Add fallback content if map fails to load
+- [ ] Document API usage for future maintenance
+
+## 9. Deployment & Monitoring
+- [ ] Push changes to feature branch
+- [ ] Create PR for review
+- [ ] Set up monitoring for API usage to track quota
+- [ ] Document the integration in the project README 
