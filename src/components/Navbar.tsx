@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
@@ -22,12 +21,14 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-plumbing-600">Nashville <span className="text-plumbing-500">Plumbing</span></h1>
+            <Link to="/" className="flex items-center">
+              <h1 className="text-2xl font-bold text-plumbing-600">Nashville <span className="text-plumbing-500">Plumbing</span></h1>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">Home</a>
+            <Link to="/" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">Home</Link>
             <a href="#services" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">Services</a>
             
             {/* Areas We Serve Dropdown */}
@@ -105,7 +106,7 @@ const Navbar = () => {
           isMenuOpen ? "top-full opacity-100" : "-top-96 opacity-0"
         )}>
           <div className="flex flex-col space-y-3 pb-3">
-            <a href="#" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Home</a>
+            <Link to="/" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Home</Link>
             <a href="#services" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Services</a>
             
             {/* Mobile Areas We Serve */}
