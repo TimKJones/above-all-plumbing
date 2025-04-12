@@ -35,7 +35,7 @@ const Navbar = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium bg-transparent hover:bg-transparent focus:bg-transparent">
+                  <NavigationMenuTrigger className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium bg-transparent hover:bg-transparent focus:bg-transparent text-base">
                     Areas We Serve
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="bg-white">
@@ -77,7 +77,6 @@ const Navbar = () => {
             </NavigationMenu>
             
             <a href="#about" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">About</a>
-            <a href="#testimonials" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">Testimonials</a>
             <a href="#contact" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">Contact</a>
           </div>
 
@@ -132,7 +131,6 @@ const Navbar = () => {
             </div>
             
             <a href="#about" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">About</a>
-            <a href="#testimonials" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Testimonials</a>
             <a href="#contact" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Contact</a>
             <Button className="btn-primary flex items-center gap-2 justify-center mt-2">
               <Phone size={18} />
