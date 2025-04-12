@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import ServicesSection from '@/components/ServicesSection';
 import ServiceAreaSection from '@/components/ServiceAreaSection';
+import CallToAction from '@/components/CallToAction';
 
 const Index = () => {
   return (
@@ -11,6 +12,7 @@ const Index = () => {
       <Hero />
       <ServicesSection />
       <ServiceAreaSection />
+      <CallToAction />
     </div>
   );
 };

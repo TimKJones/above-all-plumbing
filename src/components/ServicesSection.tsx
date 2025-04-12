@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Droplet, Wrench, Thermometer, ShowerHead, Waves } from "lucide-react";
@@ -91,21 +90,6 @@ const ServicesSection = () => {
             description="Comprehensive solutions for damaged, corroded, or outdated pipes to prevent leaks and improve water quality."
             icon={<PipeIcon width={24} height={24} />}
           />
-        </div>
-        
-        {/* CTA Banner */}
-        <div className="mt-16 bg-plumbing-600 text-white rounded-lg shadow-xl overflow-hidden">
-          <div className="flex flex-col md:flex-row items-center p-8 md:p-10">
-            <div className="flex-1 mb-6 md:mb-0">
-              <h3 className="text-2xl font-semibold mb-2">Ready for Professional Plumbing Service?</h3>
-              <p className="text-plumbing-100">Our expert plumbers are just a phone call away!</p>
-            </div>
-            <div>
-              <a href="tel:6155551234" className="inline-block py-3 px-6 bg-white text-plumbing-600 font-semibold rounded-md hover:bg-plumbing-50 transition-colors">
-                Call (615) 555-1234
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
