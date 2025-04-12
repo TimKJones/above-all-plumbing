@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const ServiceAreaSection = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white" aria-labelledby="service-area-heading">
       <div className="container-custom">
-        <h2 className="text-3xl font-bold text-center text-plumbing-600 mb-12">
+        <h2 id="service-area-heading" className="text-3xl font-bold text-center text-plumbing-600 mb-12">
           SERVING THE ENTIRE NASHVILLE METRO AREA, INCLUDING:
         </h2>
         
@@ -14,20 +14,20 @@ const ServiceAreaSection = () => {
           {/* Left Column - Cities */}
           <div>
             <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-4 text-plumbing-600 border-b pb-2 border-gray-200">
+              <h3 id="cities-heading" className="text-xl font-semibold mb-4 text-plumbing-600 border-b pb-2 border-gray-200">
                 CITIES IN THE NASHVILLE METRO AREA
               </h3>
-              <div className="flex flex-col space-y-4 mt-6">
+              <div className="flex flex-col space-y-4 mt-6" aria-labelledby="cities-heading">
                 <Link to="/franklin" className="text-plumbing-500 hover:text-plumbing-700 hover:underline flex items-center">
-                  <MapPin size={18} className="mr-2" />
+                  <MapPin size={18} className="mr-2" aria-hidden="true" />
                   Franklin
                 </Link>
                 <Link to="/nashville" className="text-plumbing-500 hover:text-plumbing-700 hover:underline flex items-center">
-                  <MapPin size={18} className="mr-2" />
+                  <MapPin size={18} className="mr-2" aria-hidden="true" />
                   Nashville
                 </Link>
                 <Link to="/brentwood" className="text-plumbing-500 hover:text-plumbing-700 hover:underline flex items-center">
-                  <MapPin size={18} className="mr-2" />
+                  <MapPin size={18} className="mr-2" aria-hidden="true" />
                   Brentwood
                 </Link>
               </div>
@@ -37,7 +37,7 @@ const ServiceAreaSection = () => {
           {/* Right Column - Map Placeholder & Contact Info */}
           <div>
             {/* Map Placeholder */}
-            <div className="bg-gray-100 rounded-lg h-[300px] flex items-center justify-center mb-6">
+            <div className="bg-gray-100 rounded-lg h-[300px] flex items-center justify-center mb-6" aria-label="Map placeholder - coming soon">
               <p className="text-gray-500">Map Coming Soon</p>
             </div>
             
