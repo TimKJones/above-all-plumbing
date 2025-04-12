@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="#0072bd" />
+  
+  <!-- Simple wrench/plumbing symbol -->
+  <path d="M38 25 C 38 25, 32 30, 32 35 C 32 40, 35 44, 40 44 C 42 44, 45 42, 45 40 L 60 55 C 60 58, 62 60, 65 60 C 70 60, 74 56, 74 51 C 74 46, 69 40, 69 40 L 53 24 C 51 24, 49 27, 49 29 C 49 34, 53 37, 58 37" 
+        stroke="white" 
+        stroke-width="6" 
+        fill="none" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+  
+  <!-- Water drop -->
+  <path d="M65 70 C 65 66, 70 62, 75 70 C 80 78, 70 82, 65 70" 
+        fill="white" 
+        stroke="white" 
+        stroke-width="1" />
+</svg> 
