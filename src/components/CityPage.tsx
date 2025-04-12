@@ -100,7 +100,7 @@ const CityPage: React.FC<CityPageProps> = ({
               <div className="w-full lg:w-1/2 mt-12 lg:mt-0 flex justify-center lg:justify-end">
                 <div className="relative rounded-lg overflow-hidden shadow-xl animate-fade-in">
                   <img 
-                    src="/nashville-plumbing-van.jpg" 
+                    src="https://res.cloudinary.com/dowzzhm6s/image/upload/c_scale,w_800/v1744474889/ai%20websites/nashville-plumbing-demo/nashville-plumbing-van_ok66pg.jpg" 
                     alt={`Nashville Plumbing service van in ${city}`} 
                     className="w-full h-auto max-h-[500px] object-cover rounded-lg"
                   />

@@ -56,7 +56,7 @@ const Hero = () => {
           <div className="w-full lg:w-1/2 mt-12 lg:mt-0 flex justify-center lg:justify-end">
             <div className="relative rounded-lg overflow-hidden shadow-xl animate-fade-in">
               <img 
-                src="/nashville-plumbing.jpg" 
+                src="https://res.cloudinary.com/dowzzhm6s/image/upload/c_scale,w_800/v1744474654/ai%20websites/nashville-plumbing-demo/nashville-plumbing_g0wacm.jpg" 
                 alt="Nashville Plumbing technician working under a sink" 
                 className="w-full h-auto max-h-[500px] object-cover rounded-lg"
               />
