@@ -50,5 +50,5 @@
 
 ## 8. Submission & Completion
 - [x] Commit changes to feature branch
-- [ ] Create pull request
+- [x] Create pull request
 - [ ] Address any review feedback 
