@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Wrench, PhoneCall, Clock, Droplet, Flame, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 interface CityPageProps {
   city: string;
+  introText?: string;
   neighborhoods?: string[];
   testimonial?: {
     name: string;
@@ -14,29 +14,33 @@ interface CityPageProps {
   };
 }
 
-const CityPage: React.FC<CityPageProps> = ({ city, neighborhoods, testimonial }) => {
+const CityPage: React.FC<CityPageProps> = ({ city, introText, neighborhoods, testimonial }) => {
   // Default content for all cities
-  let introText = `Reliable, high-quality plumbing solutions for ${city} residents and businesses. 
+  let cityIntroText = `Reliable, high-quality plumbing solutions for ${city} residents and businesses. 
                 From emergency repairs to installation projects, we've got you covered.`;
   
   // Nashville-specific content
   if (city === "Nashville") {
-    introText = `When plumbing problems strike in Nashville, TN, our team of licensed professionals is ready to respond with fast, reliable service. Whether it's a burst pipe in the middle of the night or a scheduled water heater installation, we provide comprehensive plumbing solutions 24/7 for all Nashville neighborhoods. With decades of combined experience and a commitment to quality workmanship, our Nashville plumbers arrive promptly, diagnose issues accurately, and implement lasting solutions that exceed industry standards—all at fair, transparent prices.`;
+    cityIntroText = `When plumbing problems strike in Nashville, TN, our team of licensed professionals is ready to respond with fast, reliable service. Whether it's a burst pipe in the middle of the night or a scheduled water heater installation, we provide comprehensive plumbing solutions 24/7 for all Nashville neighborhoods. With decades of combined experience and a commitment to quality workmanship, our Nashville plumbers arrive promptly, diagnose issues accurately, and implement lasting solutions that exceed industry standards—all at fair, transparent prices.`;
   }
 
   return (
     <div>
       <Navbar />
       <div className="pt-10">
-        {/* Hero Section */}
+        {/* Hero Section - Now with shorter headline and subheadline */}
         <section className="py-16 bg-gradient-to-b from-blue-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-5xl font-bold text-plumbing-600 mb-4">
-                Professional Plumbing Services in {city}
+                {city === "Nashville" 
+                  ? "Plumbing Services in Nashville, TN" 
+                  : `Professional Plumbing Services in ${city}`}
               </h1>
               <p className="text-lg text-gray-700 mb-8">
-                {introText}
+                {city === "Nashville" 
+                  ? "Trusted, 24/7 plumbing for homes and businesses across Nashville." 
+                  : `Reliable, high-quality plumbing solutions for ${city} residents and businesses.`}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button className="bg-plumbing-600 hover:bg-plumbing-700 flex items-center gap-2">
@@ -50,6 +54,19 @@ const CityPage: React.FC<CityPageProps> = ({ city, neighborhoods, testimonial })
             </div>
           </div>
         </section>
+
+        {/* Introduction Section - Moved from hero to its own section */}
+        {city === "Nashville" && (
+          <section className="py-10 bg-white">
+            <div className="container mx-auto px-4">
+              <div className="max-w-3xl">
+                <p className="text-lg text-gray-700">
+                  {cityIntroText}
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Local Services Section */}
         <section className="py-16">
