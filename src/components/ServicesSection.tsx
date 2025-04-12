@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Droplet, WrenchIcon, Thermometer, ShowerHead, Waves, PipeIcon } from "lucide-react";
+import { Droplet, Wrench, Thermometer, ShowerHead, Waves } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ServiceCardProps {
@@ -27,8 +27,8 @@ const ServiceCard = ({ title, description, icon, className }: ServiceCardProps) 
 const PipeIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
+    width={24}
+    height={24}
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -59,7 +59,7 @@ const ServicesSection = () => {
           <ServiceCard
             title="Emergency Repairs"
             description="24/7 service for burst pipes, overflows, and other plumbing emergencies that require immediate attention."
-            icon={<WrenchIcon size={24} />}
+            icon={<Wrench size={24} />}
           />
           
           <ServiceCard
@@ -89,7 +89,7 @@ const ServicesSection = () => {
           <ServiceCard
             title="Pipe Repair & Replacement"
             description="Comprehensive solutions for damaged, corroded, or outdated pipes to prevent leaks and improve water quality."
-            icon={<PipeIcon size={24} />}
+            icon={<PipeIcon width={24} height={24} />}
           />
         </div>
         
