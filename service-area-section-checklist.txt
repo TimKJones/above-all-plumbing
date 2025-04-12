@@ -10,26 +10,26 @@
 - [x] Set up component skeleton (functional component & export)
 - [x] Create section container with appropriate spacing
 - [x] Add main heading ("SERVING THE ENTIRE NASHVILLE METRO AREA, INCLUDING:")
-- [ ] Set up responsive two-column layout
+- [x] Set up responsive two-column layout
 
 ## 3. Left Column Implementation
-- [ ] Add "CITIES IN THE NASHVILLE METRO AREA" subsection heading
-- [ ] Style cities subsection with proper typography and spacing
-- [ ] Add city links that will navigate to city pages (Franklin, Nashville, Brentwood)
-- [ ] Add appropriate city link styling (icons, hover states)
+- [x] Add "CITIES IN THE NASHVILLE METRO AREA" subsection heading
+- [x] Style cities subsection with proper typography and spacing
+- [x] Add city links that will navigate to city pages (Franklin, Nashville, Brentwood)
+- [x] Add appropriate city link styling (icons, hover states)
 
 ## 4. Right Column Implementation
-- [ ] Create placeholder for map with appropriate dimensions
-- [ ] Style map placeholder with background and border
-- [ ] Add contact information section below map
-- [ ] Add placeholder text for Owner/Manager
-- [ ] Add placeholder text for Location
-- [ ] Add placeholder text for Phone Number
-- [ ] Style contact information with proper layout and typography
+- [x] Create placeholder for map with appropriate dimensions
+- [x] Style map placeholder with background and border
+- [x] Add contact information section below map
+- [x] Add placeholder text for Owner/Manager
+- [x] Add placeholder text for Location
+- [x] Add placeholder text for Phone Number
+- [x] Style contact information with proper layout and typography
 
 ## 5. Integration & Testing
-- [ ] Import ServiceAreaSection into Index.tsx
-- [ ] Add component between ServicesSection and call to action
+- [x] Import ServiceAreaSection into Index.tsx
+- [x] Add component between ServicesSection and call to action
 - [ ] Test component rendering on home page
 - [ ] Verify all city links work correctly
 
