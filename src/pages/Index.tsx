@@ -1,8 +1,8 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import ServicesSection from '@/components/ServicesSection';
+import ServiceAreaSection from '@/components/ServiceAreaSection';
 
 const Index = () => {
   return (
@@ -10,6 +10,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <ServicesSection />
+      <ServiceAreaSection />
     </div>
   );
 };
