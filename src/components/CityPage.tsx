@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { PhoneCall, ArrowRight, MapPin, Star, Users, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -57,7 +56,7 @@ const CityPage: React.FC<CityPageProps> = ({
       <div className="pt-10">
         {/* Hero Section - Clean, impactful headline and subheadline */}
         <section className="py-16 bg-gradient-to-b from-blue-50 to-white">
-          <div className="container mx-auto px-4">
+          <div className="container-custom">
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-5xl font-bold text-plumbing-600 mb-4">
                 {headline || defaultHeadline}
@@ -82,7 +81,7 @@ const CityPage: React.FC<CityPageProps> = ({
         {/* Introduction Section - Dedicated section below hero */}
         {introText && (
           <section className="py-12 bg-white">
-            <div className="container mx-auto px-4">
+            <div className="container-custom">
               <div className="max-w-3xl mx-auto text-center">
                 <p className="text-lg text-gray-700 leading-relaxed">
                   {introText}
@@ -95,7 +94,7 @@ const CityPage: React.FC<CityPageProps> = ({
         {/* Services Section - Visual service cards with icons */}
         {services && services.length > 0 && (
           <section className="py-16 bg-gray-50">
-            <div className="container mx-auto px-4">
+            <div className="container-custom">
               <h2 className="text-3xl font-bold text-plumbing-600 mb-8 text-center">
                 Our Services in {city}
               </h2>
@@ -117,7 +116,7 @@ const CityPage: React.FC<CityPageProps> = ({
         {/* Features Section - Better visual emphasis */}
         {features && features.length > 0 && (
           <section className="py-12 bg-white">
-            <div className="container mx-auto px-4">
+            <div className="container-custom">
               <h2 className="text-3xl font-bold text-plumbing-600 mb-8 text-center">
                 Why Choose Our {city} Plumbers
               </h2>
@@ -137,7 +136,7 @@ const CityPage: React.FC<CityPageProps> = ({
         {/* Testimonial and Neighborhoods Section */}
         {(testimonial || neighborhoods) && (
           <section className="py-16 bg-gray-50">
-            <div className="container mx-auto px-4">
+            <div className="container-custom">
               <h2 className="text-3xl font-bold text-plumbing-600 mb-8 text-center">
                 Trusted in {city}
               </h2>
@@ -194,7 +193,7 @@ const CityPage: React.FC<CityPageProps> = ({
 
         {/* CTA Section - Strong closing call-to-action */}
         <section className="py-12 bg-plumbing-600 text-white">
-          <div className="container mx-auto px-4 text-center">
+          <div className="container-custom text-center">
             <h2 className="text-3xl font-bold mb-6">
               {ctaHeadline || defaultCtaHeadline}
             </h2>
