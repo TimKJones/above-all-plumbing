@@ -233,11 +233,11 @@ const CityPage: React.FC<CityPageProps> = ({
               {ctaText || defaultCtaText}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg" className="bg-white text-plumbing-600 hover:bg-gray-100 text-lg py-6 px-8 h-auto">
+              <Button size="lg" className="bg-white text-plumbing-600 hover:bg-gray-100 text-lg py-4 px-6">
                 <PhoneCall className="mr-2" size={20} />
                 Call (615) 555-1234
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-plumbing-700 text-lg py-6 px-8 h-auto">
+              <Button size="lg" className="bg-white text-plumbing-600 hover:bg-gray-100 text-lg py-4 px-6 border-2 border-white">
                 Get a Quote
               </Button>
             </div>
