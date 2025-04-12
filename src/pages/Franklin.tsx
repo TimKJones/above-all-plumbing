@@ -6,7 +6,7 @@ import { WrenchIcon, DropletIcon, TrashIcon, PenLineIcon, CheckCircleIcon } from
 const Franklin = () => {
   const franklinNeighborhoods = [
     'Downtown Franklin', 'Cool Springs', 'Fieldstone Farms', 
-    'Westhaven', 'McKay\'s Mill', 'Berry Farms'
+    'Westhaven', "McKay's Mill", 'Berry Farms'
   ];
   
   const testimonial = {
