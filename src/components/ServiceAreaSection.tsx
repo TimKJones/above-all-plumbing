@@ -9,6 +9,7 @@ const MapErrorFallback = () => (
   <div 
     className="bg-gray-100 rounded-lg h-[300px] flex items-center justify-center mb-6" 
     aria-label="Map error"
+    role="alert"
   >
     <div className="text-center">
       <p className="text-gray-500 mb-2">Unable to load map</p>
@@ -65,19 +66,22 @@ const ServiceAreaSection = () => {
           <div>
             {/* Google Map with Error Boundary */}
             <div className="mb-6">
+              <h3 id="service-map-heading" className="sr-only">Service Area Map</h3>
               <ErrorBoundary FallbackComponent={MapErrorFallback}>
                 <GoogleMapComponent 
                   center={nashvilleCoordinates}
                   zoom={11}
                   markerPosition={businessLocation}
                   height="300px"
+                  ariaLabel="Map showing our service area in Nashville and surrounding cities"
                 />
               </ErrorBoundary>
             </div>
             
             {/* Contact Information */}
             <div className="bg-white rounded-lg shadow-sm p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <h3 id="contact-heading" className="sr-only">Contact Information</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4" aria-labelledby="contact-heading">
                 <div>
                   <h4 className="text-gray-500 text-sm mb-1">Owner:</h4>
                   <p className="font-medium">John Smith</p>

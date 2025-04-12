@@ -13,6 +13,7 @@ interface GoogleMapProps {
     lng: number;
   };
   height?: string;
+  ariaLabel?: string;
 }
 
 // Map container styles
@@ -38,7 +39,10 @@ const defaultMapOptions = {
   styles: mapStyles, // Apply our custom map styles
   zoomControlOptions: {
     position: 7 // RightBottom - using the google.maps.ControlPosition value
-  }
+  },
+  // Improved accessibility
+  fullscreenControl: false,
+  keyboardShortcuts: true,
 };
 
 const GoogleMapComponent: React.FC<GoogleMapProps> = ({
@@ -46,6 +50,7 @@ const GoogleMapComponent: React.FC<GoogleMapProps> = ({
   zoom = 11,
   markerPosition = defaultCenter,
   height = '300px',
+  ariaLabel = "Map showing service area in Nashville, Tennessee"
 }) => {
   // State for loading indicator
   const [isMapLoading, setIsMapLoading] = useState(true);
@@ -105,6 +110,8 @@ const GoogleMapComponent: React.FC<GoogleMapProps> = ({
       <div 
         style={customContainerStyle}
         className="bg-gray-100 flex items-center justify-center"
+        role="alert"
+        aria-live="polite"
       >
         <div className="text-center">
           <div className="animate-pulse mb-2">
@@ -122,6 +129,8 @@ const GoogleMapComponent: React.FC<GoogleMapProps> = ({
       <div 
         style={customContainerStyle}
         className="bg-gray-100 flex items-center justify-center"
+        role="alert"
+        aria-live="assertive"
       >
         <p className="text-gray-500">Error loading map</p>
       </div>
@@ -133,6 +142,8 @@ const GoogleMapComponent: React.FC<GoogleMapProps> = ({
       {isMapLoading && (
         <div 
           className="absolute inset-0 z-10 flex items-center justify-center bg-gray-100 bg-opacity-75 rounded-lg"
+          role="alert"
+          aria-live="polite"
         >
           <div className="text-center">
             <div className="animate-pulse mb-2">
@@ -142,17 +153,22 @@ const GoogleMapComponent: React.FC<GoogleMapProps> = ({
           </div>
         </div>
       )}
-      <GoogleMap
-        mapContainerStyle={customContainerStyle}
-        center={center}
-        zoom={zoom}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-        options={defaultMapOptions}
-      >
-        {/* Marker for the business location */}
-        <Marker position={markerPosition} />
-      </GoogleMap>
+      <div aria-label={ariaLabel}>
+        <GoogleMap
+          mapContainerStyle={customContainerStyle}
+          center={center}
+          zoom={zoom}
+          onLoad={onLoad}
+          onUnmount={onUnmount}
+          options={defaultMapOptions}
+        >
+          {/* Marker for the business location */}
+          <Marker 
+            position={markerPosition} 
+            title="Our Location"
+          />
+        </GoogleMap>
+      </div>
     </div>
   );
 };
