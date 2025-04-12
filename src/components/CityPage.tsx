@@ -1,5 +1,5 @@
 import React from 'react';
-import { PhoneCall, ArrowRight, MapPin, Star, Users, Check } from 'lucide-react';
+import { PhoneCall, ArrowRight, MapPin, Star, Users, Check, Clock, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import { Card, CardContent } from '@/components/ui/card';
@@ -57,22 +57,54 @@ const CityPage: React.FC<CityPageProps> = ({
         {/* Hero Section - Clean, impactful headline and subheadline */}
         <section className="py-16 bg-gradient-to-b from-blue-50 to-white">
           <div className="container-custom">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl font-bold text-plumbing-600 mb-4">
-                {headline || defaultHeadline}
-              </h1>
-              <p className="text-lg text-gray-700 mb-8">
-                {subheadline || defaultSubheadline}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-plumbing-600 hover:bg-plumbing-700 flex items-center gap-2">
-                  <PhoneCall size={18} />
-                  <span>Call Now: (615) 555-1234</span>
-                </Button>
-                <Button size="lg" variant="outline" className="border-plumbing-500 text-plumbing-500 hover:bg-plumbing-50 flex items-center gap-2">
-                  <span>Request a Free Quote</span>
-                  <ArrowRight size={18} />
-                </Button>
+            <div className="flex flex-col lg:flex-row items-center">
+              {/* Hero Content */}
+              <div className="w-full lg:w-1/2 z-10">
+                <div className="inline-flex items-center bg-white px-4 py-2 rounded-full shadow-sm mb-6">
+                  <CheckCircle2 size={18} className="text-green-500 mr-2" />
+                  <span className="text-sm font-medium">Licensed & Insured Service</span>
+                </div>
+
+                <h1 className="text-4xl md:text-5xl font-bold text-plumbing-600 mb-4">
+                  {headline || defaultHeadline}
+                </h1>
+                <p className="text-lg text-gray-700 mb-8">
+                  {subheadline || defaultSubheadline}
+                </p>
+                
+                {/* Features */}
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                  <div className="flex items-center">
+                    <Clock size={20} className="text-plumbing-500 mr-2" />
+                    <span className="text-gray-700 font-medium">24/7 Emergency Service</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle2 size={20} className="text-plumbing-500 mr-2" />
+                    <span className="text-gray-700 font-medium">100% Satisfaction Guarantee</span>
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg" className="bg-plumbing-600 hover:bg-plumbing-700 flex items-center gap-2">
+                    <PhoneCall size={18} />
+                    <span>Call Now: (615) 555-1234</span>
+                  </Button>
+                  <Button size="lg" variant="outline" className="border-plumbing-500 text-plumbing-500 hover:bg-plumbing-50 flex items-center gap-2">
+                    <span>Request a Free Quote</span>
+                    <ArrowRight size={18} />
+                  </Button>
+                </div>
+              </div>
+              
+              {/* Hero Image */}
+              <div className="w-full lg:w-1/2 mt-12 lg:mt-0 flex justify-center lg:justify-end">
+                <div className="relative rounded-lg overflow-hidden shadow-xl animate-fade-in">
+                  <img 
+                    src="/nashville-plumbing-van.jpg" 
+                    alt={`Nashville Plumbing service van in ${city}`} 
+                    className="w-full h-auto max-h-[500px] object-cover rounded-lg"
+                  />
+                </div>
               </div>
             </div>
           </div>
