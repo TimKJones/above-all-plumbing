@@ -1,15 +1,20 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { PhoneCall, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
 
+// Note: Place the plumber image in the public directory as "plumber-image.jpg"
+// For development, you can also use an external URL temporarily
+
 const Hero = () => {
+  // If you have the image in your public directory, use this path:
+  // const plumberImagePath = "/plumber-image.jpg";
+  // Otherwise, temporarily use an external URL (replace with your image URL):
+  const plumberImagePath = "https://source.unsplash.com/RdmLSJR-tq8/800x600"; // Fallback to a similar plumbing image
+
   return (
     <section className="pt-10 pb-16 md:pt-20 md:pb-24 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-plumbing-50 to-white -z-10"></div>
-      <div className="absolute top-0 right-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1591871937573-74dbba515c4c?q=80&w=2000&auto=format&fit=crop')] 
-           bg-no-repeat bg-right opacity-10 -z-10 bg-contain"></div>
       
       <div className="container-custom">
         <div className="flex flex-col lg:flex-row items-center">
@@ -55,33 +60,22 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Hero Image/Card */}
+          {/* Hero Image */}
           <div className="w-full lg:w-1/2 mt-12 lg:mt-0 flex justify-center lg:justify-end">
-            <div className="bg-white rounded-lg shadow-xl p-6 max-w-md animate-fade-in">
-              <h3 className="text-xl font-semibold mb-4 text-plumbing-600">Need A Plumber Today?</h3>
-              <div className="bg-plumbing-50 rounded-md p-4 mb-4">
-                <h4 className="font-medium text-gray-800 mb-2">Emergency Service Available</h4>
-                <p className="text-gray-600 text-sm">We'll be at your doorstep quickly to resolve your plumbing issues.</p>
-              </div>
-              
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <CheckCircle2 size={18} className="text-green-500 mr-2 mt-0.5" />
-                  <p className="text-gray-700">Free estimates on new installations</p>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle2 size={18} className="text-green-500 mr-2 mt-0.5" />
-                  <p className="text-gray-700">Same-day service for emergencies</p>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle2 size={18} className="text-green-500 mr-2 mt-0.5" />
-                  <p className="text-gray-700">Transparent, upfront pricing</p>
+            <div className="relative rounded-lg overflow-hidden shadow-xl animate-fade-in">
+              <img 
+                src={plumberImagePath}
+                alt="Nashville Plumbing technician working under a sink" 
+                className="w-full h-auto max-h-[500px] object-cover rounded-lg"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <div className="flex items-center">
+                  <div className="bg-white rounded-full p-2 mr-3">
+                    <CheckCircle2 size={20} className="text-plumbing-500" />
+                  </div>
+                  <p className="text-white font-semibold">Professional, On-Time Service</p>
                 </div>
               </div>
-              
-              <Button className="btn-primary w-full mt-6">
-                <span>Schedule Service</span>
-              </Button>
             </div>
           </div>
         </div>
