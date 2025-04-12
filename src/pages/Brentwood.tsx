@@ -1,6 +1,6 @@
 import React from 'react';
 import CityPage from '@/components/CityPage';
-import { WrenchIcon, DropletIcon, TrashIcon, PipelineIcon, CheckCircleIcon } from 'lucide-react';
+import { WrenchIcon, DropletIcon, TrashIcon, PenLineIcon, CheckCircleIcon } from 'lucide-react';
 
 const Brentwood = () => {
   const brentwoodNeighborhoods = [
@@ -30,7 +30,7 @@ const Brentwood = () => {
       description: "Professional drain cleaning and sewer line services to keep your Brentwood home's plumbing flowing properly."
     },
     {
-      icon: <PipelineIcon className="h-8 w-8 text-plumbing-500" />,
+      icon: <PenLineIcon className="h-8 w-8 text-plumbing-500" />,
       title: "Leak Detection & Repair",
       description: "Advanced leak detection technology to find and fix hidden leaks with minimal disruption to your Brentwood property."
     }
