@@ -134,7 +134,7 @@ All our emergency repairs are performed to the highest standards, with detailed 
         answer: "Our emergency vehicles are stocked with commonly needed parts and materials to complete most repairs in a single visit. For unusual parts or complex problems, a temporary solution will be implemented to make your home safe and functional until permanent repairs can be completed."
       }
     ],
-    relatedServices: [],
+    relatedServices: [2, 5, 6],
     seoMetadata: {
       title: "24/7 Emergency Plumbing Repair Services | Nashville Plumbing Vista",
       description: "Immediate response to plumbing emergencies in Nashville. Available 24/7 for burst pipes, overflows, and urgent plumbing problems. Call our emergency hotline now!",
@@ -199,7 +199,7 @@ After service, our technicians provide maintenance recommendations to help you a
         answer: "Yes, we clean all types of drains including outdoor drains, floor drains, and main sewer lines. For sewer lines, we often use camera inspection in combination with cleaning to identify any underlying issues like tree root intrusion, pipe damage, or improper slope that may be causing recurring problems."
       }
     ],
-    relatedServices: [],
+    relatedServices: [1, 6],
     seoMetadata: {
       title: "Professional Drain Cleaning Services | Nashville Plumbing Vista",
       description: "Expert drain cleaning solutions in Nashville. We clear stubborn clogs and prevent future blockages with professional equipment and techniques. Book service today!",
@@ -264,7 +264,7 @@ Regular maintenance extends your water heater's lifespan and maintains energy ef
         answer: "A standard replacement of a similar type typically takes 2-3 hours. Converting from tank to tankless or changing fuel types may take 4-8 hours due to additional modifications needed. New installations requiring new gas lines, venting, or electrical work may take a full day. We'll provide a specific timeframe based on your situation."
       }
     ],
-    relatedServices: [],
+    relatedServices: [1, 6],
     seoMetadata: {
       title: "Water Heater Installation & Repair Services | Nashville Plumbing Vista",
       description: "Expert water heater services in Nashville. Installation, repair, and maintenance for tank and tankless systems. Enjoy reliable hot water - call us today!",
@@ -329,7 +329,7 @@ All our bathroom plumbing installations meet or exceed local building codes and 
         answer: "Yes, we handle all required plumbing permits for the work we perform. Bathroom remodels typically require permits, especially when moving fixtures or making significant changes to the plumbing system. We ensure all our work is code-compliant and properly inspected, which protects you during the sale of your home and for insurance purposes."
       }
     ],
-    relatedServices: [],
+    relatedServices: [3, 6],
     seoMetadata: {
       title: "Bathroom Remodeling Plumbing Services | Nashville Plumbing Vista",
       description: "Expert plumbing services for bathroom renovations in Nashville. Professional fixture installation, pipe relocation, and plumbing upgrades for your remodel project.",
@@ -394,7 +394,7 @@ Once we've accurately located a leak, our technicians can provide repair options
         answer: "A standard leak detection service typically takes 1-3 hours depending on the property size and complexity. Our pricing starts at $X for basic leak detection and varies based on property size, leak type, and complexity. While there is a cost for detection services, finding and fixing leaks early almost always costs significantly less than repairing water damage from undetected leaks."
       }
     ],
-    relatedServices: [],
+    relatedServices: [1, 6],
     seoMetadata: {
       title: "Professional Leak Detection Services | Nashville Plumbing Vista",
       description: "Advanced, non-invasive leak detection in Nashville. We locate hidden water and gas leaks using specialized equipment with minimal disruption to your property.",
@@ -459,7 +459,7 @@ Our approach prioritizes long-term solutions that balance immediate needs with s
         answer: "With proper installation and normal use, copper pipes typically last 50+ years, PEX lasts 40-50 years, CPVC lasts 30-40 years, and PVC drain lines last 25-40 years. Factors affecting lifespan include water quality (particularly acidity and mineral content), water pressure, proper installation, and environmental conditions. All our pipe installations include a workmanship warranty."
       }
     ],
-    relatedServices: [],
+    relatedServices: [1, 2, 3, 5],
     seoMetadata: {
       title: "Expert Pipe Repair & Replacement Services | Nashville Plumbing Vista",
       description: "Professional pipe repair and replacement in Nashville. We fix leaks, replace damaged pipes, and upgrade outdated plumbing systems with minimal disruption.",
