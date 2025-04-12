@@ -34,10 +34,10 @@
 - [x] Verify all city links work correctly
 
 ## 6. Responsive Design
-- [ ] Test layout on mobile devices and fix any issues
-- [ ] Test layout on tablet devices and fix any issues
-- [ ] Test layout on desktop and fix any issues
-- [ ] Ensure proper stacking on smaller screens
+- [x] Test layout on mobile devices and fix any issues
+- [x] Test layout on tablet devices and fix any issues
+- [x] Test layout on desktop and fix any issues
+- [x] Ensure proper stacking on smaller screens
 
 ## 7. Accessibility & Final Review
 - [ ] Verify proper heading structure
