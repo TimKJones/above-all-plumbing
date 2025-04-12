@@ -60,14 +60,6 @@ const Hero = () => {
                 alt="Nashville Plumbing technician working under a sink" 
                 className="w-full h-auto max-h-[500px] object-cover rounded-lg"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <div className="flex items-center">
-                  <div className="bg-white rounded-full p-2 mr-3">
-                    <CheckCircle2 size={20} className="text-plumbing-500" />
-                  </div>
-                  <p className="text-white font-semibold">Professional, On-Time Service</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
