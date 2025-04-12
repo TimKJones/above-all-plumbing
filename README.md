@@ -59,6 +59,33 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- Google Maps API (through @react-google-maps/api)
+
+## Google Maps Integration
+
+This project uses Google Maps API to display service areas on the website. To get the map working:
+
+1. **Get an API Key**: 
+   - Visit the [Google Cloud Console](https://console.cloud.google.com/)
+   - Create a new project
+   - Enable the Maps JavaScript API
+   - Create an API key with proper restrictions
+
+2. **Configure Environment Variables**:
+   - Create a `.env` file in the project root if it doesn't exist
+   - Add your API key as: `VITE_GOOGLE_MAPS_API_KEY=your_api_key_here`
+
+3. **Security Best Practices**:
+   - Restrict your API key to your domain in Google Cloud Console
+   - Add HTTP referer restrictions to prevent unauthorized use
+
+4. **Customization**:
+   - Map styles can be modified in `src/components/GoogleMapStyles.ts`
+   - Map options and behavior can be adjusted in `src/components/GoogleMap.tsx`
+
+5. **Testing**:
+   - Verify that the map loads correctly in the service area section
+   - Test on multiple devices to ensure responsive behavior
 
 ## How can I deploy this project?
 
