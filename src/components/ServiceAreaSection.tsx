@@ -1,7 +1,21 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary';
 import GoogleMapComponent from './GoogleMap';
+
+// Error fallback component for the map
+const MapErrorFallback = () => (
+  <div 
+    className="bg-gray-100 rounded-lg h-[300px] flex items-center justify-center mb-6" 
+    aria-label="Map error"
+  >
+    <div className="text-center">
+      <p className="text-gray-500 mb-2">Unable to load map</p>
+      <p className="text-sm text-gray-400">Please check your connection and try again</p>
+    </div>
+  </div>
+);
 
 const ServiceAreaSection = () => {
   // Nashville center coordinates
@@ -49,14 +63,16 @@ const ServiceAreaSection = () => {
           
           {/* Right Column - Map & Contact Info */}
           <div>
-            {/* Google Map */}
+            {/* Google Map with Error Boundary */}
             <div className="mb-6">
-              <GoogleMapComponent 
-                center={nashvilleCoordinates}
-                zoom={11}
-                markerPosition={businessLocation}
-                height="300px"
-              />
+              <ErrorBoundary FallbackComponent={MapErrorFallback}>
+                <GoogleMapComponent 
+                  center={nashvilleCoordinates}
+                  zoom={11}
+                  markerPosition={businessLocation}
+                  height="300px"
+                />
+              </ErrorBoundary>
             </div>
             
             {/* Contact Information */}
