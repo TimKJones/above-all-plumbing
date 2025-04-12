@@ -2,7 +2,7 @@ import React from 'react';
 
 const CallToAction = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="pb-16 bg-white">
       <div className="container-custom">
         {/* CTA Banner */}
         <div className="bg-plumbing-600 text-white rounded-lg shadow-xl overflow-hidden">
