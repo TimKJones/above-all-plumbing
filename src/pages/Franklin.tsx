@@ -1,12 +1,11 @@
-
 import React from 'react';
 import CityPage from '@/components/CityPage';
-import { WrenchIcon, DropletIcon, TrashIcon, PipelineIcon, CheckCircleIcon } from 'lucide-react';
+import { WrenchIcon, DropletIcon, TrashIcon, PipeIcon, CheckCircleIcon } from 'lucide-react';
 
 const Franklin = () => {
   const franklinNeighborhoods = [
     'Downtown Franklin', 'Cool Springs', 'Fieldstone Farms', 
-    'Westhaven', 'McKay's Mill', 'Berry Farms'
+    'Westhaven', 'McKay\'s Mill', 'Berry Farms'
   ];
   
   const testimonial = {
@@ -31,7 +30,7 @@ const Franklin = () => {
       description: "Professional drain cleaning services to eliminate clogs and ensure your plumbing system flows smoothly."
     },
     {
-      icon: <PipelineIcon className="h-8 w-8 text-plumbing-500" />,
+      icon: <PipeIcon className="h-8 w-8 text-plumbing-500" />,
       title: "Pipe Repair & Replacement",
       description: "Quality pipe repair and replacement services for Franklin homes, using durable materials and proper techniques."
     }
