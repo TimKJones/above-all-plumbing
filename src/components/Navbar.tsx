@@ -1,8 +1,17 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger
+} from "@/components/ui/navigation-menu";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,6 +29,52 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <a href="#" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">Home</a>
             <a href="#services" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">Services</a>
+            
+            {/* Areas We Serve Dropdown */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium bg-transparent hover:bg-transparent focus:bg-transparent">
+                    Areas We Serve
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent className="bg-white">
+                    <ul className="grid w-[200px] gap-3 p-4">
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/nashville"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-plumbing-50 hover:text-plumbing-500"
+                          >
+                            Nashville
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/franklin"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-plumbing-50 hover:text-plumbing-500"
+                          >
+                            Franklin
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/brentwood"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-plumbing-50 hover:text-plumbing-500"
+                          >
+                            Brentwood
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            
             <a href="#about" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">About</a>
             <a href="#testimonials" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">Testimonials</a>
             <a href="#contact" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">Contact</a>
@@ -52,6 +107,29 @@ const Navbar = () => {
           <div className="flex flex-col space-y-3 pb-3">
             <a href="#" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Home</a>
             <a href="#services" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Services</a>
+            
+            {/* Mobile Areas We Serve */}
+            <div className="relative">
+              <button 
+                className="flex items-center w-full text-left text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const dropdown = e.currentTarget.nextElementSibling;
+                  if (dropdown) {
+                    dropdown.classList.toggle('hidden');
+                  }
+                }}
+              >
+                Areas We Serve
+                <ChevronDown size={16} className="ml-2" />
+              </button>
+              <div className="hidden ml-4 mt-1 space-y-2">
+                <Link to="/nashville" className="block py-1 text-gray-600 hover:text-plumbing-500">Nashville</Link>
+                <Link to="/franklin" className="block py-1 text-gray-600 hover:text-plumbing-500">Franklin</Link>
+                <Link to="/brentwood" className="block py-1 text-gray-600 hover:text-plumbing-500">Brentwood</Link>
+              </div>
+            </div>
+            
             <a href="#about" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">About</a>
             <a href="#testimonials" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Testimonials</a>
             <a href="#contact" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Contact</a>
