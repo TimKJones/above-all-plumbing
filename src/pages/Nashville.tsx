@@ -1,7 +1,6 @@
-
 import React from 'react';
 import CityPage from '@/components/CityPage';
-import { WrenchIcon, DropletIcon, TrashIcon, PipeIcon, CheckCircleIcon } from 'lucide-react';
+import { WrenchIcon, DropletIcon, TrashIcon, PipelineIcon, CheckCircleIcon } from 'lucide-react';
 
 const Nashville = () => {
   const nashvilleNeighborhoods = [
@@ -31,7 +30,7 @@ const Nashville = () => {
       description: "Our advanced diagnostic equipment quickly identifies drain clogs and sewer line issues in Nashville properties. From routine drain cleaning to complex sewer line repairs, we restore proper flow."
     },
     {
-      icon: <PipeIcon className="h-8 w-8 text-plumbing-500" />,
+      icon: <PipelineIcon className="h-8 w-8 text-plumbing-500" />,
       title: "Leak Detection & Pipe Repair",
       description: "Using the latest technology, we can locate even the most elusive leaks without damaging your walls or floors. Our technicians are experts at repairing and replacing damaged pipes with durable solutions."
     }
