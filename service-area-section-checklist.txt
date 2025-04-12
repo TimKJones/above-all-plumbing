@@ -49,6 +49,6 @@
 - [x] Documentation for future map integration
 
 ## 8. Submission & Completion
-- [ ] Commit changes to feature branch
+- [x] Commit changes to feature branch
 - [ ] Create pull request
 - [ ] Address any review feedback 
