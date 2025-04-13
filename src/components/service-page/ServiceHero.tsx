@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 interface ServiceHeroProps {
   title: string;
   description?: string;
-  image?: string;
   imageAlt?: string;
   introText?: string;
   className?: string;
@@ -17,11 +16,11 @@ interface ServiceHeroProps {
 
 /**
  * ServiceHero component displays the hero section for a service page
+ * with a consistent plumbing van background and blue overlay
  */
 const ServiceHero: React.FC<ServiceHeroProps> = ({
   title,
   description,
-  image = '/images/hero-bg.jpg',
   imageAlt,
   introText,
   className,
@@ -36,14 +35,15 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
         className
       )}
     >
-      {/* Background image with overlay */}
+      {/* Nashville plumbing van background with blue overlay */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${image})` }}
+        style={{ backgroundImage: `url(/nashville-plumbing-van.jpg)` }}
         role="img"
         aria-label={altText}
       >
-        <div className="absolute inset-0 bg-plumbing-900/70"></div>
+        {/* Blue translucent overlay with increased opacity */}
+        <div className="absolute inset-0 bg-plumbing-600/80"></div>
       </div>
       
       <div className="container relative z-10 mx-auto text-center">

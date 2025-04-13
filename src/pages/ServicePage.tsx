@@ -97,7 +97,6 @@ const ServicePage: React.FC = () => {
         heroComponent={
           <ServiceHero 
             title={service.title}
-            image={service.heroImage}
             imageAlt={heroImageAlt}
             introText={service.shortDescription}
           />
