@@ -44,11 +44,6 @@ const Hero = () => {
                 <PhoneCall size={18} />
                 <span>Call Now: (615) 555-1234</span>
               </Button>
-              
-              <Button variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
-                <span>View Our Services</span>
-                <ArrowRight size={18} />
-              </Button>
             </div>
           </div>
           
