@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import ServicesSection from '@/components/ServicesSection';
 import ServiceAreaSection from '@/components/ServiceAreaSection';
 import CallToAction from '@/components/CallToAction';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       <ServicesSection />
       <ServiceAreaSection />
       <CallToAction />
+      <Footer />
     </div>
   );
 };

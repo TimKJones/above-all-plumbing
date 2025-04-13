@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import ScheduleVisitForm from '../components/schedule/ScheduleVisitForm';
 import { Button } from '../components/ui/button';
 import { Phone } from 'lucide-react';
+import Footer from '../components/Footer';
 
 const ScheduleVisit: React.FC = () => {
   return (
@@ -34,6 +35,8 @@ const ScheduleVisit: React.FC = () => {
           <ScheduleVisitForm />
         </div>
       </main>
+      
+      <Footer />
     </>
   );
 };

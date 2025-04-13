@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Navbar from '@/components/Navbar';
 import CallToAction from '@/components/CallToAction';
 import ServiceBreadcrumb from '@/components/Breadcrumb';
+import Footer from '@/components/Footer';
 
 /**
  * Props for the ServicePageTemplate component
@@ -107,6 +108,8 @@ const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
           )}
         </section>
       </main>
+      
+      <Footer />
     </div>
   );
 };

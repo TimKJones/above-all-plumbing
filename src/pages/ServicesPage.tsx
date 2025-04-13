@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/breadcrumb';
 import { ChevronRight } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
+import Footer from '@/components/Footer';
 
 const ServicesPage: React.FC = () => {
   // Structured data for SEO (JSON-LD format)
@@ -117,6 +118,8 @@ const ServicesPage: React.FC = () => {
           ))}
         </div>
       </main>
+      
+      <Footer />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
+import Footer from '@/components/Footer';
 
 interface ServiceItem {
   icon?: React.ReactNode;
@@ -248,7 +249,7 @@ const CityPage: React.FC<CityPageProps> = ({
                   Schedule a Visit
                 </Link>
               </Button>
-              <div className="flex items-center justify-center text-white font-medium text-lg">
+              <div className="flex items-center text-white font-medium text-lg">
                 <PhoneCall size={20} className="mr-3" />
                 <span>Call Now: (615) 555-1234</span>
               </div>
@@ -256,6 +257,7 @@ const CityPage: React.FC<CityPageProps> = ({
           </div>
         </section>
       </div>
+      <Footer />
     </div>
   );
 };
