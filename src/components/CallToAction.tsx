@@ -4,7 +4,7 @@ import { PhoneCall } from 'lucide-react';
 
 const CallToAction = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-plumbing-50">
+    <section className="py-16 bg-plumbing-50">
       <div className="container-custom mx-auto">
         <div className="max-w-3xl mx-auto text-center">
           <h3 className="text-2xl md:text-3xl font-semibold mb-4">Ready for Professional Plumbing Service?</h3>
