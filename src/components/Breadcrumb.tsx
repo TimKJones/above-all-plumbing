@@ -17,7 +17,7 @@ interface ServiceBreadcrumbProps {
 
 /**
  * Breadcrumb navigation component for service pages
- * Shows the path: Home > Services > [Service Name]
+ * Shows the path: Home > [Service Name]
  * Includes structured data markup for SEO
  */
 const ServiceBreadcrumb: React.FC<ServiceBreadcrumbProps> = ({ serviceName, serviceSlug }) => {
@@ -27,7 +27,6 @@ const ServiceBreadcrumb: React.FC<ServiceBreadcrumbProps> = ({ serviceName, serv
     : 'https://nashville-plumbing-vista.com'; // Fallback URL
   
   const homeUrl = baseUrl;
-  const servicesUrl = `${baseUrl}/services`;
   const serviceUrl = `${baseUrl}/services/${serviceSlug}`;
 
   // Structured data for SEO (JSON-LD format)
@@ -44,12 +43,6 @@ const ServiceBreadcrumb: React.FC<ServiceBreadcrumbProps> = ({ serviceName, serv
       {
         '@type': 'ListItem',
         'position': 2,
-        'name': 'Services',
-        'item': servicesUrl
-      },
-      {
-        '@type': 'ListItem',
-        'position': 3,
         'name': serviceName,
         'item': serviceUrl
       }
@@ -70,16 +63,6 @@ const ServiceBreadcrumb: React.FC<ServiceBreadcrumbProps> = ({ serviceName, serv
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
               <Link to="/">Home</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          
-          <BreadcrumbSeparator>
-            <ChevronRight className="h-4 w-4" />
-          </BreadcrumbSeparator>
-          
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link to="/services">Services</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           
