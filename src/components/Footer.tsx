@@ -24,7 +24,6 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <nav className="flex flex-col space-y-2">
               <Link to="/" className="hover:text-gray-300 transition-colors">Home</Link>
-              <Link to="/services" className="hover:text-gray-300 transition-colors">Services</Link>
               <Link to="/schedule-visit" className="hover:text-gray-300 transition-colors">Schedule a Visit</Link>
             </nav>
           </div>
