@@ -1,5 +1,6 @@
 import React from 'react';
-import { PhoneCall, Calendar } from 'lucide-react';
+import { PhoneCall } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
@@ -32,22 +33,20 @@ const ServiceCTA: React.FC<ServiceCTAProps> = ({
           Contact us today for a consultation or schedule service online.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col items-center gap-6 max-w-md mx-auto">
           <Button 
+            asChild
             size="lg" 
-            className="gap-2"
+            className="w-full py-6 text-lg font-medium bg-plumbing-500 hover:bg-plumbing-600"
           >
-            <PhoneCall size={18} />
-            Call Now
+            <Link to="/schedule-visit" className="flex items-center justify-center">
+              Schedule a Visit
+            </Link>
           </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="gap-2 bg-white hover:bg-gray-50"
-          >
-            <Calendar size={18} />
-            Schedule Online
-          </Button>
+          <div className="flex items-center justify-center text-plumbing-600 font-medium text-lg">
+            <PhoneCall size={20} className="mr-3" />
+            <span>Call Now: (615) 555-1234</span>
+          </div>
         </div>
       </div>
     </div>

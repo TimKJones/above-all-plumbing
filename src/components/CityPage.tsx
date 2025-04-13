@@ -3,6 +3,7 @@ import { PhoneCall, ArrowRight, MapPin, Star, Users, Check, Clock, CheckCircle2 
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import { Card, CardContent } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
 
 interface ServiceItem {
   icon?: React.ReactNode;
@@ -84,15 +85,20 @@ const CityPage: React.FC<CityPageProps> = ({
                   </div>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-plumbing-600 hover:bg-plumbing-700 flex items-center gap-2">
-                    <PhoneCall size={18} />
+                <div className="flex flex-col items-start gap-5">
+                  <Button 
+                    asChild
+                    size="lg" 
+                    className="py-6 text-lg font-medium bg-plumbing-500 hover:bg-plumbing-600"
+                  >
+                    <Link to="/schedule-visit" className="flex items-center justify-center">
+                      Schedule a Visit
+                    </Link>
+                  </Button>
+                  <div className="flex items-center text-plumbing-600 font-medium text-lg">
+                    <PhoneCall size={20} className="mr-3" />
                     <span>Call Now: (615) 555-1234</span>
-                  </Button>
-                  <Button size="lg" variant="outline" className="border-plumbing-500 text-plumbing-500 hover:bg-plumbing-50 flex items-center gap-2">
-                    <span>Request a Free Quote</span>
-                    <ArrowRight size={18} />
-                  </Button>
+                  </div>
                 </div>
               </div>
               
@@ -232,14 +238,20 @@ const CityPage: React.FC<CityPageProps> = ({
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               {ctaText || defaultCtaText}
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg" className="bg-white text-plumbing-600 hover:bg-gray-100 text-lg py-4 px-6">
-                <PhoneCall className="mr-2" size={20} />
-                Call (615) 555-1234
+            <div className="flex flex-col items-center gap-6 max-w-md mx-auto">
+              <Button 
+                asChild
+                size="lg" 
+                className="w-full py-6 text-lg font-medium bg-white text-plumbing-600 hover:bg-gray-100"
+              >
+                <Link to="/schedule-visit" className="flex items-center justify-center">
+                  Schedule a Visit
+                </Link>
               </Button>
-              <Button size="lg" className="bg-white text-plumbing-600 hover:bg-gray-100 text-lg py-4 px-6 border-2 border-white">
-                Get a Quote
-              </Button>
+              <div className="flex items-center justify-center text-white font-medium text-lg">
+                <PhoneCall size={20} className="mr-3" />
+                <span>Call Now: (615) 555-1234</span>
+              </div>
             </div>
           </div>
         </section>

@@ -2,6 +2,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { PhoneCall } from 'lucide-react';
 
 /**
  * Props for ServiceHero component
@@ -61,14 +62,15 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
           {introText || description}
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild size="lg">
-            <Link to="/contact">Get Free Estimate</Link>
+        <div className="flex flex-col items-center gap-5 max-w-md mx-auto">
+          <Button asChild size="lg" className="w-full py-6 text-lg font-medium bg-plumbing-500 hover:bg-plumbing-600">
+            <Link to="/schedule-visit">Schedule a Visit</Link>
           </Button>
           
-          <Button variant="outline" asChild size="lg">
-            <Link to="tel:+16155555555">Call (615) 555-5555</Link>
-          </Button>
+          <div className="flex items-center justify-center text-white font-medium text-lg">
+            <PhoneCall size={20} className="mr-3" />
+            <span>Call Now: (615) 555-1234</span>
+          </div>
         </div>
       </div>
     </div>
