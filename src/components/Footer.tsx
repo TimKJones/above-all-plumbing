@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-plumbing-700 text-white py-8">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="flex flex-col">
             <h3 className="text-xl font-bold mb-4">Nashville Plumbing</h3>
@@ -19,12 +19,23 @@ const Footer: React.FC = () => {
             <p className="text-gray-300">Serving Nashville and surrounding areas</p>
           </div>
           
-          {/* Quick Links */}
+          {/* Areas We Serve */}
           <div className="flex flex-col">
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-4">Areas We Serve</h3>
             <nav className="flex flex-col space-y-2">
-              <Link to="/" className="hover:text-gray-300 transition-colors">Home</Link>
-              <Link to="/schedule-visit" className="hover:text-gray-300 transition-colors">Schedule a Visit</Link>
+              <Link to="/nashville" className="hover:text-gray-300 transition-colors">Nashville</Link>
+              <Link to="/franklin" className="hover:text-gray-300 transition-colors">Franklin</Link>
+              <Link to="/brentwood" className="hover:text-gray-300 transition-colors">Brentwood</Link>
+            </nav>
+          </div>
+          
+          {/* Services */}
+          <div className="flex flex-col">
+            <h3 className="text-xl font-bold mb-4">Services</h3>
+            <nav className="flex flex-col space-y-2">
+              <Link to="/services/emergency-repairs" className="hover:text-gray-300 transition-colors">Emergency Repairs</Link>
+              <Link to="/services/drain-cleaning" className="hover:text-gray-300 transition-colors">Drain Cleaning</Link>
+              <Link to="/services/water-heater-services" className="hover:text-gray-300 transition-colors">Water Heater Services</Link>
             </nav>
           </div>
           
