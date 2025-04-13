@@ -231,27 +231,29 @@ const CityPage: React.FC<CityPageProps> = ({
         )}
 
         {/* CTA Section - Strong closing call-to-action */}
-        <section className="py-12 bg-plumbing-600 text-white">
-          <div className="container-custom text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              {ctaHeadline || defaultCtaHeadline}
-            </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              {ctaText || defaultCtaText}
-            </p>
-            <div className="flex flex-col items-center gap-6 max-w-md mx-auto">
-              <Button 
-                asChild
-                size="lg" 
-                className="w-full py-6 text-lg font-medium bg-white text-plumbing-600 hover:bg-gray-100"
-              >
-                <Link to="/schedule-visit" className="flex items-center justify-center">
-                  Schedule a Visit
-                </Link>
-              </Button>
-              <div className="flex items-center text-white font-medium text-lg">
-                <PhoneCall size={20} className="mr-3" />
-                <span>Call Now: (615) 555-1234</span>
+        <section className="bg-plumbing-50 py-8">
+          <div className="container-custom mx-auto">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-plumbing-800 mb-4">
+                {ctaHeadline || defaultCtaHeadline}
+              </h2>
+              <p className="mb-8 text-gray-700 max-w-2xl mx-auto">
+                {ctaText || defaultCtaText}
+              </p>
+              <div className="flex flex-col items-center gap-6 max-w-md mx-auto">
+                <Button 
+                  asChild
+                  size="lg" 
+                  className="w-full py-6 text-lg font-medium bg-plumbing-500 hover:bg-plumbing-600"
+                >
+                  <Link to="/schedule-visit" className="flex items-center justify-center">
+                    Schedule a Visit
+                  </Link>
+                </Button>
+                <div className="flex items-center justify-center text-plumbing-600 font-medium text-lg">
+                  <PhoneCall size={20} className="mr-3" />
+                  <span>Call Now: (615) 555-1234</span>
+                </div>
               </div>
             </div>
           </div>
