@@ -2,9 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import services from '@/lib/services';
 import type { Service } from '@/lib/services';
-import { Toaster } from "@/components/ui/toaster";
-import Navbar from '@/components/Navbar';
-import CallToAction from '@/components/CallToAction';
+import { 
+  ServicePageTemplate, 
+  ServiceHero,
+  ServiceDescription,
+  ServiceProcess,
+  RelatedServices,
+  ServiceCTA,
+  ServiceFAQ
+} from '@/components/service-page';
+import SEOHead from '@/components/SEOHead';
 
 /**
  * ServicePage component displays details for a specific service based on the slug in the URL.
@@ -13,6 +20,7 @@ import CallToAction from '@/components/CallToAction';
 const ServicePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [service, setService] = useState<Service | null>(null);
+  const [relatedServices, setRelatedServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [notFound, setNotFound] = useState<boolean>(false);
 
@@ -24,6 +32,14 @@ const ServicePage: React.FC = () => {
     const timer = setTimeout(() => {
       if (foundService) {
         setService(foundService);
+        
+        // Find related services
+        if (foundService.relatedServices && foundService.relatedServices.length) {
+          const related = services.filter(s => 
+            foundService.relatedServices.includes(s.id) && s.id !== foundService.id
+          );
+          setRelatedServices(related);
+        }
       } else {
         setNotFound(true);
       }
@@ -47,51 +63,68 @@ const ServicePage: React.FC = () => {
     );
   }
 
-  // Service placeholder content (will be replaced with actual template in Task 3)
+  // If service is loaded, render the service page with the template
+  if (!service) return null;
+
+  // Extract potential benefits from description (optional enhancement)
+  const benefits = service.fullDescription.includes('Benefits:') 
+    ? service.fullDescription
+        .split('Benefits:')[1]
+        .split('\n')
+        .filter(line => line.trim().startsWith('- '))
+        .map(line => line.trim().substring(2))
+    : [];
+
+  // Construct canonical URL
+  const canonicalUrl = `/services/${service.slug}`;
+  
+  // Generate descriptive alt text for the hero image
+  const heroImageAlt = `${service.title} - Professional plumbing service by Nashville Plumbing Vista`;
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar />
-      <Toaster />
+    <>
+      <SEOHead
+        title={service.seoMetadata.title}
+        description={service.seoMetadata.description}
+        keywords={service.seoMetadata.keywords}
+        canonicalUrl={canonicalUrl}
+        ogImage={service.heroImage}
+        ogType="article"
+      />
       
-      {service && (
-        <div className="container-custom py-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{service.title}</h1>
-          <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-            <div className="prose max-w-none">
-              <p className="text-lg text-gray-600 mb-4">{service.shortDescription}</p>
-              <div className="whitespace-pre-line">{service.fullDescription}</div>
-            </div>
-          </div>
-          
-          {/* Process List Preview */}
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Our Process</h2>
-          <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-            <ol className="list-decimal pl-5 space-y-3">
-              {service.processList.map((process, index) => (
-                <li key={index} className="pl-2">
-                  <span className="font-semibold">{process.step}:</span> {process.description}
-                </li>
-              ))}
-            </ol>
-          </div>
-          
-          {/* FAQs Preview */}
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
-          <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-            <div className="space-y-6">
-              {service.faqs.map((faq, index) => (
-                <div key={index}>
-                  <h3 className="text-lg font-semibold text-gray-800">{faq.question}</h3>
-                  <p className="mt-2 text-gray-600">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <CallToAction />
-        </div>
-      )}
-    </div>
+      <ServicePageTemplate
+        service={service}
+        heroComponent={
+          <ServiceHero 
+            title={service.title}
+            image={service.heroImage}
+            imageAlt={heroImageAlt}
+            introText={service.shortDescription}
+          />
+        }
+        descriptionComponent={
+          <ServiceDescription 
+            shortDescription={service.shortDescription}
+            fullDescription={service.fullDescription}
+            benefits={benefits}
+          />
+        }
+        processComponent={
+          <ServiceProcess steps={service.processList} />
+        }
+        relatedServicesComponent={
+          relatedServices.length > 0 ? (
+            <RelatedServices services={relatedServices} />
+          ) : null
+        }
+        ctaComponent={
+          <ServiceCTA serviceName={service.title} />
+        }
+        faqComponent={
+          <ServiceFAQ faqs={service.faqs} />
+        }
+      />
+    </>
   );
 };
 

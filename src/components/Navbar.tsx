@@ -11,9 +11,11 @@ import {
   NavigationMenuTrigger
 } from "@/components/ui/navigation-menu";
 import { Link } from 'react-router-dom';
+import services from '@/lib/services';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   return (
     <nav className="py-4 bg-white shadow-sm sticky top-0 z-50">
@@ -28,8 +30,43 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">Home</Link>
-            <a href="#services" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">Services</a>
+            {/* Services Dropdown */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium bg-transparent hover:bg-transparent focus:bg-transparent text-base">
+                    Services
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent className="bg-white">
+                    <ul className="grid w-[320px] gap-3 p-4">
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/services"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-plumbing-50 hover:text-plumbing-500 font-medium"
+                          >
+                            View All Services
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li className="border-t border-gray-100 my-1 pt-1"></li>
+                      {services.map(service => (
+                        <li key={service.id}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={`/services/${service.slug}`}
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-plumbing-50 hover:text-plumbing-500"
+                            >
+                              {service.title}
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             
             {/* Areas We Serve Dropdown */}
             <NavigationMenu>
@@ -105,8 +142,34 @@ const Navbar = () => {
           isMenuOpen ? "top-full opacity-100" : "-top-96 opacity-0"
         )}>
           <div className="flex flex-col space-y-3 pb-3">
-            <Link to="/" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Home</Link>
-            <a href="#services" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Services</a>
+            {/* Mobile Services Dropdown */}
+            <div className="relative">
+              <button 
+                className="flex items-center w-full text-left text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsServicesOpen(!isServicesOpen);
+                }}
+              >
+                Services
+                <ChevronDown size={16} className="ml-2" />
+              </button>
+              <div className={cn("ml-4 mt-1 space-y-2", isServicesOpen ? "block" : "hidden")}>
+                <Link to="/services" className="block py-1 text-gray-600 hover:text-plumbing-500 font-medium">
+                  View All Services
+                </Link>
+                <div className="border-t border-gray-100 my-1"></div>
+                {services.map(service => (
+                  <Link 
+                    key={service.id} 
+                    to={`/services/${service.slug}`} 
+                    className="block py-1 text-gray-600 hover:text-plumbing-500"
+                  >
+                    {service.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
             
             {/* Mobile Areas We Serve */}
             <div className="relative">
