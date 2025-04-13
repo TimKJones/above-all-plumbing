@@ -107,7 +107,7 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <Button asChild variant="secondary" className="bg-plumbing-500 text-white hover:bg-plumbing-600">
+            <Button asChild className="btn-primary">
               <a href="#contact">Schedule a Visit</a>
             </Button>
             <Button className="btn-primary flex items-center gap-2">
@@ -181,7 +181,7 @@ const Navbar = () => {
             </div>
             
             <a href="#about" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">About</a>
-            <Button asChild variant="secondary" className="bg-plumbing-500 text-white hover:bg-plumbing-600 w-full justify-center">
+            <Button asChild className="btn-primary w-full justify-center">
               <a href="#contact">Schedule a Visit</a>
             </Button>
             <Button className="btn-primary flex items-center gap-2 justify-center mt-2">
