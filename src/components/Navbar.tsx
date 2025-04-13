@@ -39,17 +39,6 @@ const Navbar = () => {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="bg-white">
                     <ul className="grid w-[320px] gap-3 p-4">
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to="/services"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-plumbing-50 hover:text-plumbing-500 font-medium"
-                          >
-                            View All Services
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                      <li className="border-t border-gray-100 my-1 pt-1"></li>
                       {services.map(service => (
                         <li key={service.id}>
                           <NavigationMenuLink asChild>
@@ -155,10 +144,6 @@ const Navbar = () => {
                 <ChevronDown size={16} className="ml-2" />
               </button>
               <div className={cn("ml-4 mt-1 space-y-2", isServicesOpen ? "block" : "hidden")}>
-                <Link to="/services" className="block py-1 text-gray-600 hover:text-plumbing-500 font-medium">
-                  View All Services
-                </Link>
-                <div className="border-t border-gray-100 my-1"></div>
                 {services.map(service => (
                   <Link 
                     key={service.id} 

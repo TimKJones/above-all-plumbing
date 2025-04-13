@@ -121,15 +121,6 @@ const ServicesSection = () => {
           />
         </div>
         
-        {/* View All Services Button */}
-        <div className="text-center mt-12">
-          <Link to="/services">
-            <Button size="lg" className="px-8">
-              View All Services
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
-        </div>
       </div>
     </section>
   );
