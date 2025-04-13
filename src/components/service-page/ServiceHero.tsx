@@ -32,7 +32,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
   return (
     <div 
       className={cn(
-        "relative flex flex-col items-center pt-24 pb-16 md:pb-24 px-4",
+        "relative flex flex-col items-center pt-24 pb-16 md:pb-24 w-full",
         className
       )}
     >
@@ -47,7 +47,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
         <div className="absolute inset-0 bg-plumbing-900/90"></div>
       </div>
       
-      <div className="container relative z-10 mx-auto text-center">
+      <div className="container-custom relative z-10 mx-auto text-center">
         <h1 
           className="text-3xl md:text-5xl font-bold text-white mb-6 max-w-3xl mx-auto"
           style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}

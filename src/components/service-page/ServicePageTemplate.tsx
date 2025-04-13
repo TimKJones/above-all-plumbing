@@ -36,23 +36,19 @@ const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
       <Navbar />
       <Toaster />
       
+      {/* Hero section - Contains the H1 heading - Now full width */}
+      {heroComponent || (
+        <div className="bg-white shadow-md overflow-hidden">
+          {/* Placeholder for ServiceHero */}
+          <div className="relative h-64 bg-plumbing-100 flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-r from-plumbing-700/40 to-plumbing-800/60"></div>
+            <h1 id="service-title" className="text-4xl font-bold text-white z-10">{service.title}</h1>
+          </div>
+        </div>
+      )}
+      
       {/* Main content container */}
-      <main className="container-custom">
-        {/* Breadcrumb navigation removed */}
-        
-        {/* Hero section - Contains the H1 heading */}
-        <section className="py-12" aria-labelledby="service-title">
-          {heroComponent || (
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              {/* Placeholder for ServiceHero */}
-              <div className="relative h-64 bg-plumbing-100 flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-r from-plumbing-700/40 to-plumbing-800/60"></div>
-                <h1 id="service-title" className="text-4xl font-bold text-white z-10">{service.title}</h1>
-              </div>
-            </div>
-          )}
-        </section>
-        
+      <main className="container-custom">        
         {/* Description and Benefits section */}
         <section className="py-8" aria-labelledby="service-description-heading">
           {descriptionComponent || (
