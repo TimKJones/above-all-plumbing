@@ -43,15 +43,21 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
         aria-label={altText}
       >
         {/* Blue translucent overlay with increased opacity */}
-        <div className="absolute inset-0 bg-plumbing-600/80"></div>
+        <div className="absolute inset-0 bg-plumbing-900/90"></div>
       </div>
       
       <div className="container relative z-10 mx-auto text-center">
-        <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 max-w-3xl mx-auto">
+        <h1 
+          className="text-3xl md:text-5xl font-bold text-white mb-6 max-w-3xl mx-auto"
+          style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}
+        >
           {title}
         </h1>
         
-        <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+        <p 
+          className="text-lg text-white/90 mb-8 max-w-2xl mx-auto"
+          style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}
+        >
           {introText || description}
         </p>
         
