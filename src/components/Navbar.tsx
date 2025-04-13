@@ -103,11 +103,13 @@ const Navbar = () => {
             </NavigationMenu>
             
             <a href="#about" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">About</a>
-            <a href="#contact" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">Schedule a Visit</a>
+            <Button asChild variant="secondary" className="bg-plumbing-500 text-white hover:bg-plumbing-600">
+              <a href="#contact">Schedule a Visit</a>
+            </Button>
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center ml-4">
             <Button className="btn-primary flex items-center gap-2">
               <Phone size={18} />
               <span>(615) 555-1234</span>
@@ -179,7 +181,9 @@ const Navbar = () => {
             </div>
             
             <a href="#about" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">About</a>
-            <a href="#contact" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Schedule a Visit</a>
+            <Button asChild variant="secondary" className="bg-plumbing-500 text-white hover:bg-plumbing-600 w-full justify-center">
+              <a href="#contact">Schedule a Visit</a>
+            </Button>
             <Button className="btn-primary flex items-center gap-2 justify-center mt-2">
               <Phone size={18} />
               <span>(615) 555-1234</span>
