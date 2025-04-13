@@ -3,9 +3,9 @@ import React from 'react';
 const CallToAction = () => {
   return (
     <section className="pb-16 bg-white">
-      <div className="container-custom">
-        {/* CTA Banner */}
-        <div className="bg-gradient-to-b from-white to-plumbing-50 text-gray-800 rounded-lg shadow-xl overflow-hidden border border-gray-100">
+      {/* CTA Banner - Full Width */}
+      <div className="bg-gradient-to-b from-white to-plumbing-50 text-gray-800 shadow-xl overflow-hidden border-y border-gray-100">
+        <div className="container-custom mx-auto">
           <div className="flex flex-col md:flex-row items-center p-8 md:p-10">
             <div className="flex-1 mb-6 md:mb-0">
               <h3 className="text-2xl font-semibold mb-2">Ready for Professional Plumbing Service?</h3>
