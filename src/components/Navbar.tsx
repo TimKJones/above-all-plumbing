@@ -19,6 +19,12 @@ const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   
   const location = useLocation();
+  
+  // Function to close the mobile menu
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+  };
 
   return (
     <nav className="py-4 bg-white shadow-sm sticky top-0 z-50">
@@ -165,6 +171,7 @@ const Navbar = () => {
                     key={service.id} 
                     to={`/services/${service.slug}`} 
                     className="block py-1 text-gray-600 hover:text-plumbing-500"
+                    onClick={closeMobileMenu}
                   >
                     {service.title}
                   </Link>
@@ -188,13 +195,37 @@ const Navbar = () => {
                 <ChevronDown size={16} className="ml-2" />
               </button>
               <div className="hidden ml-4 mt-1 space-y-2">
-                <Link to="/nashville" className="block py-1 text-gray-600 hover:text-plumbing-500">Nashville</Link>
-                <Link to="/franklin" className="block py-1 text-gray-600 hover:text-plumbing-500">Franklin</Link>
-                <Link to="/brentwood" className="block py-1 text-gray-600 hover:text-plumbing-500">Brentwood</Link>
+                <Link 
+                  to="/nashville" 
+                  className="block py-1 text-gray-600 hover:text-plumbing-500"
+                  onClick={closeMobileMenu}
+                >
+                  Nashville
+                </Link>
+                <Link 
+                  to="/franklin" 
+                  className="block py-1 text-gray-600 hover:text-plumbing-500"
+                  onClick={closeMobileMenu}
+                >
+                  Franklin
+                </Link>
+                <Link 
+                  to="/brentwood" 
+                  className="block py-1 text-gray-600 hover:text-plumbing-500"
+                  onClick={closeMobileMenu}
+                >
+                  Brentwood
+                </Link>
               </div>
             </div>
             
-            <Link to="/schedule-visit" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Schedule a Visit</Link>
+            <Link 
+              to="/schedule-visit" 
+              className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2"
+              onClick={closeMobileMenu}
+            >
+              Schedule a Visit
+            </Link>
             <div className="flex items-center text-plumbing-600 font-medium py-2">
               <Phone size={18} className="mr-2" />
               <span>(615) 555-1234</span>
