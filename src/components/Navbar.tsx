@@ -12,10 +12,13 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Link } from 'react-router-dom';
 import services from '@/lib/services';
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  
+  const location = useLocation();
 
   return (
     <nav className="py-4 bg-white shadow-sm sticky top-0 z-50">
@@ -34,24 +37,26 @@ const Navbar = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium bg-transparent hover:bg-transparent focus:bg-transparent text-base">
+                  <NavigationMenuTrigger
+                    className={cn(
+                      "text-gray-600 hover:text-plumbing-500 transition-colors font-medium bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent text-base",
+                      location.pathname.includes('/services') && "text-plumbing-500"
+                    )}
+                  >
                     Services
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="bg-white">
-                    <ul className="grid w-[320px] gap-3 p-4">
+                  <NavigationMenuContent>
+                    <div className="grid grid-cols-2 gap-3 p-4 w-[400px]">
                       {services.map(service => (
-                        <li key={service.id}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={`/services/${service.slug}`}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-plumbing-50 hover:text-plumbing-500"
-                            >
-                              {service.title}
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
+                        <Link
+                          key={service.id}
+                          to={`/services/${service.slug}`}
+                          className="block p-2 hover:bg-gray-100 rounded"
+                        >
+                          {service.title}
+                        </Link>
                       ))}
-                    </ul>
+                    </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuList>
@@ -61,42 +66,46 @@ const Navbar = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium bg-transparent hover:bg-transparent focus:bg-transparent text-base">
+                  <NavigationMenuTrigger
+                    className={cn(
+                      "text-gray-600 hover:text-plumbing-500 transition-colors font-medium bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent text-base",
+                      (location.pathname === '/nashville' || 
+                       location.pathname === '/franklin' || 
+                       location.pathname === '/brentwood') && "text-plumbing-500"
+                    )}
+                  >
                     Areas We Serve
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="bg-white">
-                    <ul className="grid w-[200px] gap-3 p-4">
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to="/nashville"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-plumbing-50 hover:text-plumbing-500"
-                          >
-                            Nashville
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to="/franklin"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-plumbing-50 hover:text-plumbing-500"
-                          >
-                            Franklin
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to="/brentwood"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-plumbing-50 hover:text-plumbing-500"
-                          >
-                            Brentwood
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
+                  <NavigationMenuContent>
+                    <div className="flex flex-col p-4 w-[200px]">
+                      <Link 
+                        to="/nashville" 
+                        className={cn(
+                          "block p-2 hover:bg-gray-100 rounded",
+                          location.pathname === '/nashville' && "bg-gray-100"
+                        )}
+                      >
+                        Nashville
+                      </Link>
+                      <Link 
+                        to="/franklin" 
+                        className={cn(
+                          "block p-2 hover:bg-gray-100 rounded",
+                          location.pathname === '/franklin' && "bg-gray-100"
+                        )}
+                      >
+                        Franklin
+                      </Link>
+                      <Link 
+                        to="/brentwood" 
+                        className={cn(
+                          "block p-2 hover:bg-gray-100 rounded",
+                          location.pathname === '/brentwood' && "bg-gray-100"
+                        )}
+                      >
+                        Brentwood
+                      </Link>
+                    </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuList>
@@ -107,12 +116,12 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <Button asChild className="btn-primary">
-              <a href="#contact">Schedule a Visit</a>
-            </Button>
-            <Button className="btn-primary flex items-center gap-2">
-              <Phone size={18} />
+            <div className="flex items-center text-plumbing-600 font-medium">
+              <Phone size={18} className="mr-2" />
               <span>(615) 555-1234</span>
+            </div>
+            <Button asChild className="btn-primary">
+              <Link to="/schedule-visit">Schedule a Visit</Link>
             </Button>
           </div>
 
@@ -136,7 +145,7 @@ const Navbar = () => {
             {/* Mobile Services Dropdown */}
             <div className="relative">
               <button 
-                className="flex items-center w-full text-left text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2"
+                className="flex items-center w-full text-left text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2 text-base"
                 onClick={(e) => {
                   e.preventDefault();
                   setIsServicesOpen(!isServicesOpen);
@@ -161,7 +170,7 @@ const Navbar = () => {
             {/* Mobile Areas We Serve */}
             <div className="relative">
               <button 
-                className="flex items-center w-full text-left text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2"
+                className="flex items-center w-full text-left text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2 text-base"
                 onClick={(e) => {
                   e.preventDefault();
                   const dropdown = e.currentTarget.nextElementSibling;
@@ -181,12 +190,12 @@ const Navbar = () => {
             </div>
             
             <a href="#about" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">About</a>
-            <Button asChild className="btn-primary w-full justify-center">
-              <a href="#contact">Schedule a Visit</a>
-            </Button>
-            <Button className="btn-primary flex items-center gap-2 justify-center mt-2">
-              <Phone size={18} />
+            <div className="flex items-center text-plumbing-600 font-medium py-2">
+              <Phone size={18} className="mr-2" />
               <span>(615) 555-1234</span>
+            </div>
+            <Button asChild className="btn-primary w-full justify-center">
+              <Link to="/schedule-visit">Schedule a Visit</Link>
             </Button>
           </div>
         </div>

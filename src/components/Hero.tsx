@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { PhoneCall, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
+import { PhoneCall, Clock, CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -39,11 +40,16 @@ const Hero = () => {
             </div>
             
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="btn-primary flex items-center gap-2">
-                <PhoneCall size={18} />
-                <span>Call Now: (615) 555-1234</span>
+            <div className="flex flex-col gap-6 max-w-md">
+              <Button asChild size="lg" className="w-full py-6 text-lg font-medium bg-plumbing-500 hover:bg-plumbing-600">
+                <Link to="/schedule-visit" className="flex items-center justify-center">
+                  Schedule a Visit
+                </Link>
               </Button>
+              <div className="flex items-center justify-start text-plumbing-600 font-medium text-lg">
+                <PhoneCall size={20} className="mr-3" />
+                <span>Call Now: (615) 555-1234</span>
+              </div>
             </div>
           </div>
           
