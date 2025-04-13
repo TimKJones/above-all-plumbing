@@ -37,10 +37,7 @@ const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
       
       {/* Main content container */}
       <main className="container-custom">
-        {/* Breadcrumb navigation */}
-        <div className="py-3">
-          <ServiceBreadcrumb serviceName={service.title} serviceSlug={service.slug} />
-        </div>
+        {/* Breadcrumb navigation removed */}
         
         {/* Hero section - Contains the H1 heading */}
         <section className="py-12" aria-labelledby="service-title">
