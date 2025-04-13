@@ -103,13 +103,13 @@ const Navbar = () => {
             </NavigationMenu>
             
             <a href="#about" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">About</a>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center space-x-3">
             <Button asChild variant="secondary" className="bg-plumbing-500 text-white hover:bg-plumbing-600">
               <a href="#contact">Schedule a Visit</a>
             </Button>
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center ml-4">
             <Button className="btn-primary flex items-center gap-2">
               <Phone size={18} />
               <span>(615) 555-1234</span>
