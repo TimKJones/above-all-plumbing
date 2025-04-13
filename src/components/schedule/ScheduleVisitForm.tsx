@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../styles/ScheduleVisitForm.css';
 
-// Service types for dropdown
+// Service types for dropdown - no longer needed but kept for reference
 const SERVICE_TYPES = [
   'Drain Cleaning',
   'Leak Repair',
@@ -20,7 +20,7 @@ const ScheduleVisitForm: React.FC = () => {
     email: '',
     phone: '',
     address: '',
-    serviceType: SERVICE_TYPES[0],
+    serviceType: '',
     preferredDate: '',
     preferredTime: '',
     description: ''
@@ -62,7 +62,7 @@ const ScheduleVisitForm: React.FC = () => {
       email: '',
       phone: '',
       address: '',
-      serviceType: SERVICE_TYPES[0],
+      serviceType: '',
       preferredDate: '',
       preferredTime: '',
       description: ''
@@ -127,19 +127,15 @@ const ScheduleVisitForm: React.FC = () => {
             
             <div className="form-group">
               <label htmlFor="serviceType">Service Type</label>
-              <select
+              <input
+                type="text"
                 id="serviceType"
                 name="serviceType"
                 value={formData.serviceType}
                 onChange={handleChange}
+                placeholder="Enter service type needed"
                 required
-              >
-                {SERVICE_TYPES.map((service, index) => (
-                  <option key={index} value={service}>
-                    {service}
-                  </option>
-                ))}
-              </select>
+              />
             </div>
             
             <div className="form-group">
@@ -167,12 +163,13 @@ const ScheduleVisitForm: React.FC = () => {
             </div>
             
             <div className="form-group">
-              <label htmlFor="description">Description of Issue (Optional)</label>
+              <label htmlFor="description">Description of Issue</label>
               <textarea
                 id="description"
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
+                required
               />
             </div>
             
