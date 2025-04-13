@@ -111,18 +111,23 @@ const Navbar = () => {
               </NavigationMenuList>
             </NavigationMenu>
             
-            <a href="#about" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium">About</a>
+            <Link 
+              to="/schedule-visit" 
+              className={cn(
+                "text-gray-600 hover:text-plumbing-500 transition-colors font-medium text-base",
+                location.pathname === '/schedule-visit' && "text-plumbing-500"
+              )}
+            >
+              Schedule a Visit
+            </Link>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-3">
+          {/* Phone Number - Right Aligned */}
+          <div className="hidden md:flex items-center">
             <div className="flex items-center text-plumbing-600 font-medium">
               <Phone size={18} className="mr-2" />
               <span>(615) 555-1234</span>
             </div>
-            <Button asChild className="btn-primary">
-              <Link to="/schedule-visit">Schedule a Visit</Link>
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -189,14 +194,11 @@ const Navbar = () => {
               </div>
             </div>
             
-            <a href="#about" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">About</a>
+            <Link to="/schedule-visit" className="text-gray-600 hover:text-plumbing-500 transition-colors font-medium py-2">Schedule a Visit</Link>
             <div className="flex items-center text-plumbing-600 font-medium py-2">
               <Phone size={18} className="mr-2" />
               <span>(615) 555-1234</span>
             </div>
-            <Button asChild className="btn-primary w-full justify-center">
-              <Link to="/schedule-visit">Schedule a Visit</Link>
-            </Button>
           </div>
         </div>
       </div>

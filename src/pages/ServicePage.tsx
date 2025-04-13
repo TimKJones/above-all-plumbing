@@ -7,8 +7,6 @@ import {
   ServiceHero,
   ServiceDescription,
   ServiceProcess,
-  RelatedServices,
-  ServiceCTA,
   ServiceFAQ
 } from '@/components/service-page';
 import SEOHead from '@/components/SEOHead';
@@ -20,7 +18,6 @@ import SEOHead from '@/components/SEOHead';
 const ServicePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [service, setService] = useState<Service | null>(null);
-  const [relatedServices, setRelatedServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [notFound, setNotFound] = useState<boolean>(false);
 
@@ -32,14 +29,6 @@ const ServicePage: React.FC = () => {
     const timer = setTimeout(() => {
       if (foundService) {
         setService(foundService);
-        
-        // Find related services
-        if (foundService.relatedServices && foundService.relatedServices.length) {
-          const related = services.filter(s => 
-            foundService.relatedServices.includes(s.id) && s.id !== foundService.id
-          );
-          setRelatedServices(related);
-        }
       } else {
         setNotFound(true);
       }
@@ -110,14 +99,6 @@ const ServicePage: React.FC = () => {
         }
         processComponent={
           <ServiceProcess steps={service.processList} />
-        }
-        relatedServicesComponent={
-          relatedServices.length > 0 ? (
-            <RelatedServices services={relatedServices} />
-          ) : null
-        }
-        ctaComponent={
-          <ServiceCTA serviceName={service.title} />
         }
         faqComponent={
           <ServiceFAQ faqs={service.faqs} />

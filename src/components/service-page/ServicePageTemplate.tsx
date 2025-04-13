@@ -2,7 +2,6 @@ import React from 'react';
 import type { Service } from '@/lib/services';
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from '@/components/Navbar';
-import CallToAction from '@/components/CallToAction';
 import ServiceBreadcrumb from '@/components/Breadcrumb';
 
 /**
@@ -13,8 +12,6 @@ export interface ServicePageTemplateProps {
   heroComponent?: React.ReactNode;
   descriptionComponent?: React.ReactNode;
   processComponent?: React.ReactNode;
-  relatedServicesComponent?: React.ReactNode;
-  ctaComponent?: React.ReactNode;
   faqComponent?: React.ReactNode;
 }
 
@@ -28,8 +25,6 @@ const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
   heroComponent,
   descriptionComponent,
   processComponent,
-  relatedServicesComponent,
-  ctaComponent = <CallToAction />,
   faqComponent
 }) => {
   return (
@@ -86,23 +81,6 @@ const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
               </ol>
             </div>
           )}
-        </section>
-        
-        {/* Related Services section */}
-        <section className="py-8" aria-labelledby="related-services-heading">
-          {relatedServicesComponent || (
-            <div className="bg-white rounded-lg shadow-md p-6">
-              {/* Placeholder for RelatedServices */}
-              <h2 id="related-services-heading" className="text-2xl font-bold text-gray-800 mb-4">Related Services</h2>
-              <p>Related services will be displayed here.</p>
-            </div>
-          )}
-        </section>
-        
-        {/* CTA section */}
-        <section className="py-8" aria-labelledby="cta-heading">
-          <h2 id="cta-heading" className="sr-only">Contact Us</h2>
-          {ctaComponent}
         </section>
         
         {/* FAQ section */}
