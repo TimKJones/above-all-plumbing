@@ -2,6 +2,7 @@ import React from 'react';
 import type { Service } from '@/lib/services';
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from '@/components/Navbar';
+import CallToAction from '@/components/CallToAction';
 import ServiceBreadcrumb from '@/components/Breadcrumb';
 
 /**
@@ -12,6 +13,7 @@ export interface ServicePageTemplateProps {
   heroComponent?: React.ReactNode;
   descriptionComponent?: React.ReactNode;
   processComponent?: React.ReactNode;
+  ctaComponent?: React.ReactNode;
   faqComponent?: React.ReactNode;
 }
 
@@ -25,6 +27,7 @@ const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
   heroComponent,
   descriptionComponent,
   processComponent,
+  ctaComponent = <CallToAction />,
   faqComponent
 }) => {
   return (
@@ -81,6 +84,12 @@ const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
               </ol>
             </div>
           )}
+        </section>
+        
+        {/* CTA section */}
+        <section className="py-8" aria-labelledby="cta-heading">
+          <h2 id="cta-heading" className="sr-only">Contact Us</h2>
+          {ctaComponent}
         </section>
         
         {/* FAQ section */}

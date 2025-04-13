@@ -7,6 +7,7 @@ import {
   ServiceHero,
   ServiceDescription,
   ServiceProcess,
+  ServiceCTA,
   ServiceFAQ
 } from '@/components/service-page';
 import SEOHead from '@/components/SEOHead';
@@ -99,6 +100,9 @@ const ServicePage: React.FC = () => {
         }
         processComponent={
           <ServiceProcess steps={service.processList} />
+        }
+        ctaComponent={
+          <ServiceCTA serviceName={service.title} />
         }
         faqComponent={
           <ServiceFAQ faqs={service.faqs} />
