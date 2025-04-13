@@ -83,7 +83,7 @@ const ServiceFAQ: React.FC<ServiceFAQProps> = ({
   if (!faqs.length) return null;
 
   return (
-    <div className={cn("bg-white rounded-lg shadow-md p-8", className)}>
+    <div className={cn("bg-white p-8", className)}>
       <div className="max-w-4xl mx-auto">
         <h2 id={headingId} className="text-2xl md:text-3xl font-bold text-plumbing-800 mb-8">{title}</h2>
         

@@ -23,7 +23,7 @@ const ServiceDescription: React.FC<ServiceDescriptionProps> = ({
   className,
 }) => {
   return (
-    <div className={cn("bg-white rounded-lg shadow-md p-8", className)}>
+    <div className={cn("bg-white p-8", className)}>
       <div className="max-w-4xl mx-auto">
         {/* Visually hidden heading for accessibility */}
         <h2 id="service-description-heading" className="sr-only">Service Description</h2>

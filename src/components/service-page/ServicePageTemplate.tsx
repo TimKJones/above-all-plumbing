@@ -47,12 +47,11 @@ const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
         </div>
       )}
       
-      {/* Main content container */}
-      <main className="container-custom">        
-        {/* Description and Benefits section */}
-        <section className="py-8" aria-labelledby="service-description-heading">
+      {/* Description and Benefits section - Now full width */}
+      <section className="bg-white py-8" aria-labelledby="service-description-heading">
+        <div className="container-custom mx-auto">
           {descriptionComponent || (
-            <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="p-6">
               {/* Placeholder for ServiceDescription */}
               <h2 id="service-description-heading" className="text-2xl font-bold text-gray-800 mb-4 sr-only">Service Description</h2>
               <div className="prose max-w-none">
@@ -61,12 +60,14 @@ const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
               </div>
             </div>
           )}
-        </section>
-        
-        {/* Service Process Steps visualization */}
-        <section className="py-8" aria-labelledby="service-process-heading">
+        </div>
+      </section>
+      
+      {/* Service Process Steps visualization - Now full width */}
+      <section className="bg-white py-8" aria-labelledby="service-process-heading">
+        <div className="container-custom mx-auto">
           {processComponent || (
-            <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="p-6">
               {/* Placeholder for ServiceProcess */}
               <h2 id="service-process-heading" className="text-2xl font-bold text-gray-800 mb-4">Our Process</h2>
               <ol className="list-decimal pl-5 space-y-3">
@@ -78,18 +79,20 @@ const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
               </ol>
             </div>
           )}
-        </section>
-        
-        {/* CTA section */}
-        <section className="py-8" aria-labelledby="cta-heading">
-          <h2 id="cta-heading" className="sr-only">Contact Us</h2>
-          {ctaComponent}
-        </section>
-        
-        {/* FAQ section */}
-        <section className="py-8" aria-labelledby="faq-heading">
+        </div>
+      </section>
+      
+      {/* CTA section - Now full width */}
+      <section className="py-8" aria-labelledby="cta-heading">
+        <h2 id="cta-heading" className="sr-only">Contact Us</h2>
+        {ctaComponent}
+      </section>
+      
+      {/* FAQ section - Now full width */}
+      <section className="bg-white py-8" aria-labelledby="faq-heading">
+        <div className="container-custom mx-auto">
           {faqComponent || (
-            <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="p-6">
               {/* Placeholder for ServiceFAQ */}
               <h2 id="faq-heading" className="text-2xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
               <div className="space-y-6">
@@ -102,8 +105,8 @@ const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({
               </div>
             </div>
           )}
-        </section>
-      </main>
+        </div>
+      </section>
       
       <Footer />
     </div>

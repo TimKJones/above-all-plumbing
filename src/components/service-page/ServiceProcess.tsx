@@ -46,8 +46,8 @@ const ServiceProcess: React.FC<ServiceProcessProps> = ({
   const adaptedSteps = steps.map(adaptProcessStep);
 
   return (
-    <div className={cn("py-12", className)}>
-      <div className="container mx-auto">
+    <div className={cn("py-12 bg-white", className)}>
+      <div className="container-custom mx-auto">
         <h2 id={headingId} className="text-3xl font-bold text-center text-plumbing-800 mb-12">
           {title}
         </h2>
