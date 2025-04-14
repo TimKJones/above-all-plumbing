@@ -33,7 +33,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <h1 className="text-2xl font-bold text-plumbing-600">Nashville <span className="text-plumbing-500">Plumbing</span></h1>
+              <img src="/above-all-plumbing.png" alt="Above All Plumbing & Septic" className="h-12" />
             </Link>
           </div>
 

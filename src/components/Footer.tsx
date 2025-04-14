@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="flex flex-col">
-            <h3 className="text-xl font-bold mb-4">Nashville Plumbing</h3>
+            <h3 className="text-xl font-bold mb-4">Above All Plumbing & Septic</h3>
             <div className="flex items-center mb-2">
               <Phone size={18} className="mr-2" />
               <span>(615) 555-1234</span>
@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
         
         {/* Copyright */}
         <div className="border-t border-gray-600 mt-8 pt-6 text-center text-gray-300">
-          <p>Copyright © {currentYear} Nashville Plumbing. All rights reserved.</p>
+          <p>Copyright © {currentYear} Above All Plumbing & Septic. All rights reserved.</p>
         </div>
       </div>
     </footer>
